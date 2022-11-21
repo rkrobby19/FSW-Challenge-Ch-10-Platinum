@@ -1,12 +1,31 @@
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import MyCard from "../components/card";
+import MyCarousel from "../components/carousel";
 import MyNavbar from "../components/navbar";
+import { Container } from 'react-bootstrap';
 
 export default function Home() {
     return (
         <>
-            <MyNavbar />
-            <div>
-                <h1>Welcome, this is landing page</h1>
-            </div>
+            <MyNavbar />            
+            <MyCarousel/>
+            <Container >
+            <Row className="text-center align-center justify-content-center mt-5 mb-5" >
+                <Col md={3}>
+                    <MyCard/>
+                </Col>    
+                <Col md={3}>
+                    <MyCard/>
+                </Col>    
+                <Col md={3}>
+                    <MyCard/>
+                </Col> 
+                <Col md={3}>
+                    <MyCard/>
+                </Col>                
+            </Row>
+            </Container>
         </>
     );
 }
