@@ -13,20 +13,7 @@ export default function Home() {
             <MyNavbar />            
             <MyCarousel/>
             <Container >
-            <Row className="text-center align-center justify-content-center my-5" >
-                <Col md={3}>
-                    <MyCard/>
-                </Col>    
-                <Col md={3}>
-                    <MyCard/>
-                </Col>    
-                <Col md={3}>
-                    <MyCard/>
-                </Col> 
-                <Col md={3}>
-                    <MyCard/>
-                </Col>                
-            </Row>
+            <MyCard/>
             </Container>
             <MyAbout/>
             <MyFooter/>

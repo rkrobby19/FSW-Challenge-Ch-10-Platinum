@@ -81,43 +81,71 @@ const MyFooter = () => {
       <Card.Body>
         <Row>
           <Col className="border border-3 border-dark p-3">
-            <Card.Title>TEAM NAME</Card.Title>
+            <Card.Title>GROUP NAME :</Card.Title>
             <Card.Text>
               We are team 2 from Fullstack Web Development with Binar Academy
             </Card.Text>
           </Col>
           <Col className="border border-3 border-dark p-3">
-            <Card.Title>GAMES</Card.Title>
+            <Card.Title>GAMES : </Card.Title>
             <Card.Text>
-              <Button className="my-1" variant="dark" href="/scissor">
+              <Button
+                className="my-1 border border-2 rounded-pill"
+                variant="dark"
+                href="/scissor"
+              >
                 SCISSSOR
               </Button>{" "}
               <br></br>
-              <Button className="my-1" variant="dark" href="/simon">
+              <Button
+                className="my-1 border border-2 rounded-pill"
+                variant="dark"
+                href="/simon"
+              >
                 SIMON
               </Button>{" "}
               <br></br>
-              <Button className="my-1" variant="dark" href="/dummy">
+              <Button
+                className="my-1 border border-2 rounded-pill"
+                variant="dark"
+                href="/dummy"
+              >
                 DUMMY
               </Button>
             </Card.Text>
           </Col>
           <Col className="border border-3 border-dark p-3">
-            <Card.Title>USEFUL LINKS</Card.Title>
+            <Card.Title>USEFUL LINKS :</Card.Title>
             <Card.Text>
-              <Button className="my-1" variant="primary" href="/home">
+              <Button
+                className="my-1 border border-2 rounded-pill"
+                variant="dark"
+                href="/home"
+              >
                 HOME
               </Button>
               <br></br>
-              <Button className="my-1" variant="primary" href="/profile">
+              <Button
+                className="my-1 border border-2 rounded-pill"
+                variant="dark"
+                href="/profile"
+              >
                 PROFILE
               </Button>
               <br></br>
-              <Button className="my-1" variant="primary" href="/login">
+              <Button
+                className="my-1 border border-2 rounded-pill"
+                variant="dark"
+                href="/login"
+              >
                 LOGIN
               </Button>
               <br></br>
-              <Button className="my-1" variant="primary" href="/register">
+              <Button
+                className="my-1 border border-2 rounded-pill"
+                variant="dark"
+                href="/register"
+              >
                 REGISTER
               </Button>
             </Card.Text>
