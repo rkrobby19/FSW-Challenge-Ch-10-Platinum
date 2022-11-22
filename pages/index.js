@@ -4,6 +4,8 @@ import MyCard from "../components/card";
 import MyCarousel from "../components/carousel";
 import MyNavbar from "../components/navbar";
 import { Container } from 'react-bootstrap';
+import MyAbout from '../components/about';
+import MyFooter from '../components/footer';
 
 export default function Home() {
     return (
@@ -11,7 +13,7 @@ export default function Home() {
             <MyNavbar />            
             <MyCarousel/>
             <Container >
-            <Row className="text-center align-center justify-content-center mt-5 mb-5" >
+            <Row className="text-center align-center justify-content-center my-5" >
                 <Col md={3}>
                     <MyCard/>
                 </Col>    
@@ -26,6 +28,8 @@ export default function Home() {
                 </Col>                
             </Row>
             </Container>
+            <MyAbout/>
+            <MyFooter/>
         </>
     );
 }

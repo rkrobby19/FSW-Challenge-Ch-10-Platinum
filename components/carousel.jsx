@@ -5,12 +5,11 @@ const MyCarousel = () => {
     <Carousel>
       <Carousel.Item interval={1000}>
         <img
-          className="d-block w-100"
+          className="d-block w-100 border border-2 rounded-5 p-5"
           src="https://telset.id/wp-content/uploads/2020/09/21-9.jpg"
           alt="First slide"
           width="100%"
           height="100%"
-          className="border border-2 rounded-5 p-5"
         />
         <Carousel.Caption>
           <h3>First slide label</h3>
@@ -19,12 +18,11 @@ const MyCarousel = () => {
       </Carousel.Item>
       <Carousel.Item interval={500}>
         <img
-          className="d-block w-100"
+          className="d-block w-100 border border-2 rounded-5 p-5"
           src="https://telset.id/wp-content/uploads/2020/09/21-9.jpg"
           alt="Second slide"
           width="100%"
           height="100%"
-          className="border border-2 rounded-5 p-5"
         />
         <Carousel.Caption>
           <h3>Second slide label</h3>
@@ -33,12 +31,11 @@ const MyCarousel = () => {
       </Carousel.Item>
       <Carousel.Item>
         <img
-          className="d-block w-100"
+          className="d-block w-100 border border-2 rounded-5 p-5"
           src="https://telset.id/wp-content/uploads/2020/09/21-9.jpg"
           alt="Third slide"
           width="100%"
           height="100%"
-          className="border border-2 rounded-5 p-5"
         />
         <Carousel.Caption>
           <h3>Third slide label</h3>
