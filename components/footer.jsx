@@ -120,7 +120,7 @@ const MyFooter = () => {
               <Button
                 className="my-1 border border-2 rounded-pill"
                 variant="dark"
-                href="/home"
+                href="/"
               >
                 HOME
               </Button>
