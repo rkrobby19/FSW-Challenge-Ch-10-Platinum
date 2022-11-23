@@ -7,6 +7,7 @@ const SimonGame = () => {
             <div>
                 <h1>Simon Game Page</h1>
             </div>
+            <MyFooter/>
         </>
     );
 };
