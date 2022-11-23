@@ -1,34 +1,33 @@
+import style from "./ProfileCard.module.css";
 import { Button, Card } from "react-bootstrap";
 
 const ProfileCard = (props) => {
     const { showModal } = props;
     return (
-        <Card>
+        <Card className={style.card}>
             <Card.Body className="text-center">
                 <img
                     src="https://bootdey.com/img/Content/avatar/avatar7.png"
                     alt=""
-                    style={{
-                        borderRadius: "50%",
-                        width: "150px",
-                        height: "150px",
-                        boxShadow:
-                            "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
-                    }}
+                    className={style.profilePic}
                 />
 
                 <Card.Title>
-                    <h4 className="my-inline-display">Fullname</h4>
+                    <i class="fa-solid fa-user "></i>
+                    {"   "}
+                    <h4 className="d-inline">Fullname</h4>
                 </Card.Title>
                 <Card.Subtitle className="mb-2 text-secondary ">
                     <h5>@Username</h5>
                 </Card.Subtitle>
                 <Card.Subtitle className="mb-2 text-muted">
-                    <h6 className="my-inline-display">user.email@gmail.com</h6>
+                    <i class="fa-solid fa-envelope"></i>
+                    {"   "}
+                    <h6 className="d-inline">user.email@gmail.com</h6>
                 </Card.Subtitle>
 
-                <Button variant="primary" onClick={showModal}>
-                    Edit Profile
+                <Button variant="primary" onClick={showModal} className="mt-1">
+                    <i class="fa-solid fa-user-pen"></i> {"   "}Edit
                 </Button>
             </Card.Body>
         </Card>

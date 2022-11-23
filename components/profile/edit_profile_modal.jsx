@@ -67,8 +67,8 @@ const EditProfileModal = (props) => {
                 </Form>
             </Modal.Body>
             <Modal.Footer>
-                <Button variant="secondary" onClick={handleClose}>
-                    Close
+                <Button variant="danger" onClick={handleClose}>
+                    Discard
                 </Button>
                 <Button
                     variant="primary"
@@ -76,7 +76,9 @@ const EditProfileModal = (props) => {
                         handleClose();
                     }}
                 >
-                    Save Changes
+                    <i class="fa-solid fa-floppy-disk"></i>
+                    {"   "}
+                    Save
                 </Button>
             </Modal.Footer>
         </Modal>

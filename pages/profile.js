@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Head from "next/head";
 import { Col, Container, Row } from "react-bootstrap";
 import MyNavbar from "../components/navbar";
 import EditProfileModal from "../components/profile/edit_profile_modal";
@@ -12,9 +13,19 @@ const Profile = () => {
 
     return (
         <>
+            <Head>
+                <title>Profile</title>
+                {/* Font Awesome  */}
+                <link
+                    rel="stylesheet"
+                    href="https://use.fontawesome.com/releases/v6.1.2/css/all.css"
+                    integrity="sha384-fZCoUih8XsaUZnNDOiLqnby1tMJ0sE7oBbNk2Xxf5x8Z4SvNQ9j83vFMa/erbVrV"
+                    crossOrigin="anonymous"
+                />
+            </Head>
             <MyNavbar />
 
-            <Container fluid="md" bg="dark" className="my-mt">
+            <Container fluid="md" bg="dark" className="mt-5">
                 <Row>
                     <Col sm={4}>
                         <Container>
