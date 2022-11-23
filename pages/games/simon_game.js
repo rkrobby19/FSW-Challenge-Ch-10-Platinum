@@ -1,4 +1,5 @@
 import Head from "next/head";
+import style from "../../styles/Simon.module.css";
 import { Col, Container, Row } from "react-bootstrap";
 import MyNavbar from "../../components/navbar";
 import GameButton from "../../components/simon_game/game_button";
@@ -20,13 +21,15 @@ const SimonGame = () => {
             </Head>
             <MyNavbar />
             <Container>
-                <h1>Press The Play Button To Start The Game</h1>
+                <h1 className={style.title}>
+                    Press The Play Button To Start The Game
+                </h1>
                 <Row>
-                    <Col sm="4">
+                    <Col sm="5">
                         <ScoreTable />
                         <GameButton />
                     </Col>
-                    <Col sm="8">
+                    <Col sm="7" className="m-auto">
                         <TheSimonGame />
                     </Col>
                 </Row>

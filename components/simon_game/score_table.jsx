@@ -1,8 +1,9 @@
+import style from "./Score.module.css";
 import { Card, Table } from "react-bootstrap";
 
 const ScoreTable = () => {
     return (
-        <Card className="my-card">
+        <Card className={style.score}>
             <Card.Body>
                 <Card.Title>Your Score</Card.Title>
 

@@ -1,57 +1,40 @@
+import { Container } from "react-bootstrap";
+import style from "./Game.module.css";
+
 const TheSimonGame = () => {
     return (
-        <>
-            <div className="row" style={{ display: "block" }}>
+        <Container className="d-flex justify-content-center">
+            <div className="row d-flex justify-content-end">
                 <div
                     type="button"
                     id="green"
-                    className="my-btn green"
-                    style={{
-                        height: "200px",
-                        width: "200px",
-                        backgroundColor: "green",
-                    }}
+                    className={style.buttonGreen}
                     // onClick={playerChoices}
                 ></div>
                 <div
                     type="button"
                     id="red"
-                    className="my-btn red"
-                    style={{
-                        height: "200px",
-                        width: "200px",
-                        backgroundColor: "red",
-                    }}
+                    className={style.buttonRed}
                     // onClick={playerChoices}
                 ></div>
             </div>
-            <div className="row" style={{ display: "block" }}>
+            <div className="row d-flex justify-content-start">
                 <div
                     type="button"
                     id="yellow"
-                    className="my-btn yellow"
-                    style={{
-                        height: "200px",
-                        width: "200px",
-                        backgroundColor: "yellow",
-                    }}
+                    className={style.buttonYellow}
 
                     // onClick={playerChoices}
                 ></div>
                 <div
                     type="button"
                     id="blue"
-                    className="my-btn blue"
-                    style={{
-                        height: "200px",
-                        width: "200px",
-                        backgroundColor: "blue",
-                    }}
+                    className={style.buttonBlue}
 
                     // onClick={playerChoices}
                 ></div>
             </div>
-        </>
+        </Container>
     );
 };
 

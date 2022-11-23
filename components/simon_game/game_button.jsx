@@ -2,7 +2,7 @@ import { Button, Container } from "react-bootstrap";
 
 const GameButton = () => {
     return (
-        <Container>
+        <Container className="d-flex justify-content-center">
             <Button
                 size="lg"
                 variant="danger"
