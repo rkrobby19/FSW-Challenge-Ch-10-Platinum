@@ -1,4 +1,6 @@
+import { useEffect, useState } from "react";
 import Head from "next/head";
+import $ from "jquery";
 import style from "../../styles/Simon.module.css";
 import { Col, Container, Row } from "react-bootstrap";
 import MyNavbar from "../../components/navbar";
@@ -7,6 +9,75 @@ import ScoreTable from "../../components/simon_game/score_table";
 import TheSimonGame from "../../components/simon_game/simon_game";
 
 const SimonGame = () => {
+    const [play, setPlay] = useState(false);
+
+    let buttonColours = ["red", "blue", "green", "yellow"];
+    let gamePattern = [];
+    let userPattern = [];
+
+    const playHandler = () => {
+        setPlay(true);
+        gamePlay();
+    };
+    const restartHandler = () => {
+        gamePattern = [];
+        userPattern = [];
+        setPlay(false);
+    };
+
+    const gamePlay = () => {
+        if (play === true) {
+            nextSequence();
+        }
+    };
+
+    const nextSequence = () => {
+        userPattern = [];
+        let randomNumber = Math.floor(Math.random() * 4);
+        let randomChosenColour = buttonColours[randomNumber];
+        gamePattern.push(randomChosenColour);
+
+        playRound(gamePattern);
+    };
+
+    const playRound = (sequence) => {
+        sequence.forEach((color, index) => {
+            setTimeout(() => {
+                $("#" + color)
+                    .fadeIn(100)
+                    .fadeOut(100)
+                    .fadeIn(100);
+                // playSound(color);
+            }, (index + 1) * 600);
+        });
+    };
+
+    const playerChoices = (e) => {
+        let userChoice = e.currentTarget.id;
+        userPattern.push(userChoice);
+        // playSound(userChoice);
+
+        checkAnswer(userPattern.length - 1);
+    };
+
+    const checkAnswer = (currentLevel) => {
+        if (gamePattern[currentLevel] === userPattern[currentLevel]) {
+            if (userPattern.length === gamePattern.length) {
+                setTimeout(() => {
+                    nextSequence();
+                }, 1000);
+            }
+        } else {
+            // playSound("wrong");
+            startOver();
+        }
+    };
+
+    const startOver = () => {
+        restartHandler();
+    };
+
+    useEffect(() => {}, []);
     return (
         <>
             <Head>
@@ -27,10 +98,13 @@ const SimonGame = () => {
                 <Row>
                     <Col sm="5">
                         <ScoreTable />
-                        <GameButton />
+                        <GameButton
+                            play={playHandler}
+                            restart={restartHandler}
+                        />
                     </Col>
                     <Col sm="7" className="m-auto">
-                        <TheSimonGame />
+                        <TheSimonGame playerChoices={playerChoices} />
                     </Col>
                 </Row>
             </Container>

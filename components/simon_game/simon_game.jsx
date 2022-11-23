@@ -1,7 +1,8 @@
 import { Container } from "react-bootstrap";
 import style from "./Game.module.css";
 
-const TheSimonGame = () => {
+const TheSimonGame = (props) => {
+    const { playerChoices } = props;
     return (
         <Container className="d-flex justify-content-center">
             <div className="row d-flex justify-content-end">
@@ -9,13 +10,13 @@ const TheSimonGame = () => {
                     type="button"
                     id="green"
                     className={style.buttonGreen}
-                    // onClick={playerChoices}
+                    onClick={playerChoices}
                 ></div>
                 <div
                     type="button"
                     id="red"
                     className={style.buttonRed}
-                    // onClick={playerChoices}
+                    onClick={playerChoices}
                 ></div>
             </div>
             <div className="row d-flex justify-content-start">
@@ -23,15 +24,13 @@ const TheSimonGame = () => {
                     type="button"
                     id="yellow"
                     className={style.buttonYellow}
-
-                    // onClick={playerChoices}
+                    onClick={playerChoices}
                 ></div>
                 <div
                     type="button"
                     id="blue"
                     className={style.buttonBlue}
-
-                    // onClick={playerChoices}
+                    onClick={playerChoices}
                 ></div>
             </div>
         </Container>

@@ -1,12 +1,13 @@
 import { Button, Container } from "react-bootstrap";
 
-const GameButton = () => {
+const GameButton = (props) => {
+    const { play, restart } = props;
     return (
         <Container className="d-flex justify-content-center">
             <Button
                 size="lg"
                 variant="danger"
-                // onClick={play}
+                onClick={play}
                 className="me-2"
                 style={{ width: "60px", height: "60px" }}
             >
@@ -16,7 +17,7 @@ const GameButton = () => {
             <Button
                 size="lg"
                 variant="success"
-                // onClick={restart}
+                onClick={restart}
                 className="ms-2"
                 style={{ width: "60px", height: "60px" }}
             >
