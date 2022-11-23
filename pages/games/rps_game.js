@@ -7,6 +7,7 @@ const RPSGame = () => {
             <div>
                 <h1>RPS Game Page</h1>
             </div>
+            <MyFooter/>
         </>
     );
 };

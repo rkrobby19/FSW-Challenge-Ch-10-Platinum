@@ -1,4 +1,5 @@
 import MyNavbar from "../components/navbar";
+import MyFooter from '../components/footer';
 
 const Profile = () => {
     return (
@@ -7,6 +8,7 @@ const Profile = () => {
             <div>
                 <h1>Profile page</h1>
             </div>
+            <MyFooter />
         </>
     );
 };
