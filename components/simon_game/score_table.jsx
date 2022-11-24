@@ -1,5 +1,5 @@
 import style from "./Score.module.css";
-import { Card, Table } from "react-bootstrap";
+import { Button, Card, Table } from "react-bootstrap";
 
 const ScoreTable = () => {
     return (
@@ -27,6 +27,8 @@ const ScoreTable = () => {
                         </tr>
                     </tbody>
                 </Table>
+
+                <Button className="mt-3">Save</Button>
             </Card.Body>
         </Card>
     );
