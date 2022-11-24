@@ -4,6 +4,7 @@ import $ from "jquery";
 import style from "../../styles/Simon.module.css";
 import { Col, Container, Row } from "react-bootstrap";
 import MyNavbar from "../../components/navbar";
+import MyFooter from "../../components/footer";
 import GameButton from "../../components/simon_game/game_button";
 import ScoreTable from "../../components/simon_game/score_table";
 import TheSimonGame from "../../components/simon_game/simon_game";
@@ -115,7 +116,9 @@ const SimonGame = () => {
                         </Col>
                     </Row>
                 </Container>
+                <MyFooter/>
             </body>
+
         </>
     );
 };
