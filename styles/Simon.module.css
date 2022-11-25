@@ -1,0 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+.title {
+    font-family: "Press Start 2P", cursive;
+    font-size: 2.5rem;
+    margin: 5%;
+    color: #fef2bf;
+    text-align: center;
+}

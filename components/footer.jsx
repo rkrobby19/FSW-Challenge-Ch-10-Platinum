@@ -92,7 +92,7 @@ const MyFooter = () => {
               <Button
                 className="my-1 border border-2 rounded-pill"
                 variant="dark"
-                href="/scissor"
+                href="/games/rps_game"
               >
                 SCISSSOR
               </Button>{" "}
@@ -100,7 +100,7 @@ const MyFooter = () => {
               <Button
                 className="my-1 border border-2 rounded-pill"
                 variant="dark"
-                href="/simon"
+                href="/games/simon_game"
               >
                 SIMON
               </Button>{" "}
@@ -108,7 +108,7 @@ const MyFooter = () => {
               <Button
                 className="my-1 border border-2 rounded-pill"
                 variant="dark"
-                href="/dummy"
+                href="/games/dummy"
               >
                 DUMMY
               </Button>
