@@ -6,7 +6,7 @@ import EditProfileModal from "../components/profile/edit_profile_modal";
 import GameHistory from "../components/profile/game_history";
 import ProfileCard from "../components/profile/profile_card";
 import MyFooter from "../components/footer";
-import { uploadProfileImage } from "../utils/user";
+import { updateUserById, uploadProfileImage } from "../utils/user";
 
 const Profile = () => {
     const [show, setShow] = useState(false);
@@ -37,7 +37,6 @@ const Profile = () => {
     );
     const handleFileChange = (event) => {
         const file = event.target.files[0];
-        console.log(file);
         if (file) {
             const reader = new FileReader();
             setImageFile(file);
@@ -52,8 +51,12 @@ const Profile = () => {
 
     // * Update user data
     const updateUserData = async () => {
-        const url = await uploadProfileImage({ userId }, imageFile);
-        console.log(url);
+        if (imageFile) {
+            const url = await uploadProfileImage(userId, imageFile);
+            await updateUserById(userId, inputs, url);
+        } else {
+            await updateUserById(userId, inputs);
+        }
     };
 
     useEffect(() => {

@@ -1,9 +1,41 @@
-import { storage } from "../config/firebase";
+import { databaseFirebase, storage } from "../config/firebase";
+import { ref, update } from "firebase/database";
 import {
     ref as storageRef,
     uploadBytes,
     getDownloadURL,
 } from "firebase/storage";
+
+const db = databaseFirebase;
+
+// * Update user data by Id
+export const updateUserById = (id, data, url) => {
+    const dbRef = ref(db, `users/${id}`);
+    let updateData = {};
+    if (url) {
+        updateData = {
+            fullname: data.fullname,
+            username: data.username,
+            email: data.email,
+            profileImg: url,
+        };
+    } else {
+        updateData = {
+            fullname: data.fullname,
+            username: data.username,
+            email: data.email,
+        };
+    }
+
+    update(dbRef, updateData)
+        .then(() => {
+            return console.log(`Data updated`);
+        })
+        .catch((error) => {
+            console.log(error);
+            return console.log(`Data update failed`);
+        });
+};
 
 // * Upload image to firebase storage
 export const uploadProfileImage = async (id, file) => {
