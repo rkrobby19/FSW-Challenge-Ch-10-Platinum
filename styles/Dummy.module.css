@@ -1,0 +1,15 @@
+.dummy{
+    height: 70vh;
+}
+
+.dummy_bt{
+    display: block;
+    margin: auto;
+    margin-top: 30vh;
+}
+
+.dummy_text{
+    text-align: center;
+    color: aliceblue;
+    margin-top: 10px;
+}
