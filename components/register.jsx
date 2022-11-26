@@ -60,7 +60,7 @@ const MyRegister = () => {
               Submit
             </Button>
           </div>
-          <div className="text-light ms-3 mt-5">
+          <div className="text-light ms-3 mt-3">
             <h4>
               Bak to Login Page{" "}
               <span className="color">

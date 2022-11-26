@@ -1,15 +1,16 @@
 import { CardGroup, Col, Row } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import style from "../styles/home.module.css";
 
 const MyCard = () => {
   return (
     <Row>
-      <Col>
+      <Col className={style.card_group}>
         <Card
           box-shadow="0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"
           style={{ width: "18rem" }}
-          className="shadow bg-white my-5 mx-2"
+          className={style.card}
         >
           <Card.Img
             variant="top"
@@ -26,13 +27,10 @@ const MyCard = () => {
           </Card.Body>
         </Card>
       </Col>
-      <Col>
-        <Card
-          box-shadow="0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"
-          style={{ width: "18rem" }}
-          className="shadow bg-white my-5 mx-2"
-        >
+      <Col className={style.card_group}>
+        <Card style={{ width: "18rem" }} className={style.card}>
           <Card.Img
+            className={style.card_image}
             variant="top"
             src="https://cdn1.epicgames.com/offer/4b5461ca8d1c488787b5200b420de066/egs-shadowofthetombraiderdefinitiveedition-eidosmontralcrystaldynamicsnixxessoftware-s4-1200x1600-7ee40d6fa744_1200x1600-950cdb624cc75d04fe3c8c0b62ce98de?h=854&resize=1&w=640"
           />
@@ -46,11 +44,11 @@ const MyCard = () => {
           </Card.Body>
         </Card>
       </Col>
-      <Col>
+      <Col className={style.card_group}>
         <Card
           box-shadow="0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"
           style={{ width: "18rem" }}
-          className="shadow bg-white my-5 mx-2"
+          className={style.card}
         >
           <Card.Img
             variant="top"
@@ -67,11 +65,11 @@ const MyCard = () => {
           </Card.Body>
         </Card>
       </Col>
-      <Col>
+      <Col className={style.card_group}>
         <Card
           box-shadow="0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"
           style={{ width: "18rem" }}
-          className="shadow bg-white my-5 mx-2"
+          className={style.card}
         >
           <Card.Img
             variant="top"
