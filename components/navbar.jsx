@@ -4,7 +4,7 @@ import style from "../styles/nav.module.css";
 
 const MyNavbar = () => {
   return (
-    <Navbar className="m-3 h5" variant="dark" expand="lg">
+    <Navbar className={style.navbar} variant="dark" expand="lg">
       <Container>
         <Navbar.Brand href="/" className={style.brand}>
           Kelompok 2

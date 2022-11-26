@@ -1,9 +1,10 @@
 import { Col, Row, Card, Button } from "react-bootstrap";
+import style from "../styles/home.module.css";
 
 const MyAbout = () => {
   return (
-    <Card className="p-5 m-1  bg-transparent border border-2 border-light text-white ">
-      <h1 className="text-center mb-5">About Us</h1>
+    <Card className={style.about}>
+      <h1 className="text-center mb-5">AMAZING TEAM</h1>
       <Row className="border border-2 border-dark rounded-3 p-3">
         <Col md={2} className="text-end d-flex align-items-center">
           <Card.Img

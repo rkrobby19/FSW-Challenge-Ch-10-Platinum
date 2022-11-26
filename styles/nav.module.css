@@ -1,4 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Rubik+Distressed&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap');
+
+
+.navbar {
+    margin: 20px;
+}
 
 .brand {
   font-family: 'Open Sans', sans-serif;
@@ -7,14 +13,17 @@
   color: blueviolet;
   border-style: solid;
   border-radius: 20px;
-  padding: 10px 40px 10px 40px;
+  padding: 10px 40px 10px 40px;;
 }
 
 .nav_link{
+    font-family: 'Secular One', sans-serif;
+    font-weight: 500;
     text-decoration: none;
     color: blueviolet ;
     margin-left: 30px;
     padding: 15px 30px 13px 30px;
+    transition: transform .5s; /* Animation */
 }
 
 .nav_link:hover{
@@ -25,4 +34,5 @@
     background: linear-gradient(to right, rgb(52, 14, 87), rgb(49, 13, 142), blueviolet);
     border-color: white;
     box-shadow: 3px 3px 10px #f4f2f2;
+    transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
 }
