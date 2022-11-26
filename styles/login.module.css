@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap');
+
+.all {
+    font-family: 'Secular One', sans-serif;
+    font-size: 90px;
+}
+
 .transparent {
     padding: 15px;
     font-size: 20px;

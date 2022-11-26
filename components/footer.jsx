@@ -1,13 +1,13 @@
 import Link from "next/link";
-import { Col, Button, Row } from "react-bootstrap";
+import { Col, Button, Row, Container } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 import style from "../styles/footer.module.css";
 
 const MyFooter = () => {
   return (
-    <Card className={style.footer}>
+    <Container fluid className={style.footer}>
       <Card.Header>
-        <Row>
+        <Row className="my-4">
           <Col className="text-end mx-5">
             Get connected with us on social networks :
           </Col>
@@ -212,7 +212,7 @@ const MyFooter = () => {
       <Card.Footer className="text-center ">
         © 2021 Copyright: fsw24.com
       </Card.Footer>
-    </Card>
+    </Container>
   );
 };
 

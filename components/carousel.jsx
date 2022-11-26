@@ -1,47 +1,46 @@
 import Carousel from "react-bootstrap/Carousel";
+import style from "../styles/home.module.css";
 
 const MyCarousel = () => {
   return (
     <Carousel>
       <Carousel.Item interval={1000}>
         <img
-          className="d-block w-100 border border-2 rounded-5 p-5"
+          className={style.carousel_slide}
           src="https://telset.id/wp-content/uploads/2020/09/21-9.jpg"
           alt="First slide"
           width="100%"
           height="100%"
         />
-        <Carousel.Caption>
-          <h3>First slide label</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+        <Carousel.Caption className={style.carousel_header}>
+          <h1>LET'S PLAYED THE GAME </h1>
+          <p>have fun every with new journey</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item interval={500}>
         <img
-          className="d-block w-100 border border-2 rounded-5 p-5"
-          src="https://telset.id/wp-content/uploads/2020/09/21-9.jpg"
+          className={style.carousel_slide}
+          src="https://wallpaperaccess.com/full/4495322.jpg"
           alt="Second slide"
           width="100%"
           height="100%"
         />
-        <Carousel.Caption>
-          <h3>Second slide label</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <Carousel.Caption className={style.carousel_header}>
+          <h1>MORE POWERFULL EXPERIENCES </h1>
+          <p>only width your hand then all will be winner.</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
         <img
-          className="d-block w-100 border border-2 rounded-5 p-5"
-          src="https://telset.id/wp-content/uploads/2020/09/21-9.jpg"
+          className={style.carousel_slide}
+          src="https://i.pinimg.com/originals/a2/94/b5/a294b593769b6bf61b55c152032e7459.jpg"
           alt="Third slide"
           width="100%"
           height="100%"
         />
-        <Carousel.Caption>
-          <h3>Third slide label</h3>
-          <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-          </p>
+        <Carousel.Caption className={style.carousel_header}>
+          <h1>MAKE TIME FOR YOUR GAME </h1>
+          <p>focus at finger on keybord and mouse.</p>
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>

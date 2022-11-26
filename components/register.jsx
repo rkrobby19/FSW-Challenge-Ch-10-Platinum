@@ -12,7 +12,7 @@ import style from "../styles/login.module.css";
 
 const MyRegister = () => {
   return (
-    <Container>
+    <Container className={style.all}>
       <Row>
         <Col>
           <Image

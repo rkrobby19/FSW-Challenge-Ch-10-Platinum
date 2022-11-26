@@ -4,6 +4,8 @@
 
 .navbar {
     margin: 20px;
+    background-image: url("https://img.freepik.com/free-vector/space-game-background-neon-night-alien-landscape_107791-1624.jpg?w=2000");
+    border-radius: 40px;
 }
 
 .brand {
@@ -19,6 +21,7 @@
 .nav_link{
     font-family: 'Secular One', sans-serif;
     font-weight: 500;
+    font-size: 25px;
     text-decoration: none;
     color: blueviolet ;
     margin-left: 30px;
