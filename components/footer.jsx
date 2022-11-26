@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Col, Button, Row } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 
@@ -89,65 +90,64 @@ const MyFooter = () => {
           <Col className="border border-3 border-dark p-3">
             <Card.Title>GAMES : </Card.Title>
             <Card.Text>
-              <Button
-                className="my-1 border border-2 rounded-pill"
-                variant="dark"
-                href="/games/rps_game"
-              >
-                SCISSSOR
-              </Button>{" "}
+              <Link href="/games/rps_game">
+                <Button
+                  className="my-1 border border-2 rounded-pill"
+                  variant="dark"
+                >
+                  SCISSSOR
+                </Button>
+              </Link>
               <br></br>
-              <Button
-                className="my-1 border border-2 rounded-pill"
-                variant="dark"
-                href="/games/simon_game"
-              >
-                SIMON
-              </Button>{" "}
+              <Link href="/games/simon_game">
+                <Button
+                  className="my-1 border border-2 rounded-pill"
+                  variant="dark"
+                >
+                  SIMON
+                </Button>
+              </Link>
               <br></br>
-              <Button
-                className="my-1 border border-2 rounded-pill"
-                variant="dark"
-                href="/games/dummy"
-              >
-                DUMMY
-              </Button>
+
+              <Link href="/games/dummy_games">
+                <Button
+                  className="my-1 border border-2 rounded-pill"
+                  variant="dark"
+                >
+                  DUMMY
+                </Button>
+              </Link>
             </Card.Text>
           </Col>
           <Col className="border border-3 border-dark p-3">
             <Card.Title>USEFUL LINKS :</Card.Title>
             <Card.Text>
-              <Button
-                className="my-1 border border-2 rounded-pill"
-                variant="dark"
-                href="/"
-              >
-                HOME
-              </Button>
+              <Link href="/">
+                <Button
+                  className="my-1 border border-2 rounded-pill"
+                  variant="dark"
+                >
+                  HOME
+                </Button>
+              </Link>
               <br></br>
-              <Button
-                className="my-1 border border-2 rounded-pill"
-                variant="dark"
-                href="/profile"
-              >
-                PROFILE
-              </Button>
+              <Link href="/profile">
+                <Button
+                  className="my-1 border border-2 rounded-pill"
+                  variant="dark"
+                >
+                  PROFILE
+                </Button>
+              </Link>
               <br></br>
-              <Button
-                className="my-1 border border-2 rounded-pill"
-                variant="dark"
-                href="/login"
-              >
-                LOGIN
-              </Button>
-              <br></br>
-              <Button
-                className="my-1 border border-2 rounded-pill"
-                variant="dark"
-                href="/register"
-              >
-                REGISTER
-              </Button>
+              <Link href="/login">
+                <Button
+                  className="my-1 border border-2 rounded-pill"
+                  variant="dark"
+                >
+                  SIGN UP
+                </Button>
+              </Link>
             </Card.Text>
           </Col>
           <Col className="border border-3 border-dark p-3">
@@ -187,7 +187,7 @@ const MyFooter = () => {
                 viewBox="0 0 16 16"
               >
                 <path
-                  fill-rule="evenodd"
+                  fillRule="evenodd"
                   d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"
                 />
               </svg>
