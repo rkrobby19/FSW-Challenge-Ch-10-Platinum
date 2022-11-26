@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Head from "next/head";
 import { Col, Container, Row } from "react-bootstrap";
 import MyNavbar from "../components/navbar";
@@ -48,6 +48,12 @@ const Profile = () => {
             reader.readAsDataURL(file);
         }
     };
+
+    useEffect(() => {
+        if (localStorage.getItem("jwt-token") === null) {
+            window.location.href = "/login";
+        }
+    });
 
     return (
         <>
