@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Col, Button, Row } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 
@@ -93,7 +94,7 @@ const MyFooter = () => {
                             <Button
                                 className="my-1 border border-2 rounded-pill"
                                 variant="dark"
-                                href="/games/rps_game"
+                                href="/scissor"
                             >
                                 SCISSSOR
                             </Button>{" "}
@@ -101,7 +102,7 @@ const MyFooter = () => {
                             <Button
                                 className="my-1 border border-2 rounded-pill"
                                 variant="dark"
-                                href="/games/simon_game"
+                                href="/simon"
                             >
                                 SIMON
                             </Button>{" "}
@@ -109,7 +110,7 @@ const MyFooter = () => {
                             <Button
                                 className="my-1 border border-2 rounded-pill"
                                 variant="dark"
-                                href="/games/dummy"
+                                href="/dummy"
                             >
                                 DUMMY
                             </Button>
@@ -121,7 +122,7 @@ const MyFooter = () => {
                             <Button
                                 className="my-1 border border-2 rounded-pill"
                                 variant="dark"
-                                href="/"
+                                href="/home"
                             >
                                 HOME
                             </Button>

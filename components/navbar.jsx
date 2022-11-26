@@ -1,4 +1,6 @@
+import Link from "next/link";
 import { Container, Nav, Navbar } from "react-bootstrap";
+import style from "../styles/nav.module.css";
 
 const MyNavbar = () => {
   return (
@@ -7,13 +9,19 @@ const MyNavbar = () => {
         <Navbar.Brand href="/">Kelompok 2</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="/profile">Profile</Nav.Link>
+          <Nav className="me-auto mylink">
+            <Link href="/" className={style.nav_link}>
+              HOME
+            </Link>
+            <Link href="/profile" className={style.nav_link}>
+              PROFILE
+            </Link>
           </Nav>
+
           <Nav>
-            <Nav.Link href="/login">Login</Nav.Link>
-            <Nav.Link href="/register">Register</Nav.Link>
+            <Link href="/login" className={style.nav_link}>
+              SING UP
+            </Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
