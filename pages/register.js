@@ -1,12 +1,15 @@
 import MyNavbar from "../components/navbar";
+import MyRegister from "../components/register";
+import MyFooter from "../components/footer";
 
 const Register = () => {
     return (
         <>
-            <MyNavbar />
+           <MyNavbar />
             <div>
-                <h1>Register Page</h1>
+            <MyRegister/>
             </div>
+            <MyFooter/>
         </>
     );
 };
