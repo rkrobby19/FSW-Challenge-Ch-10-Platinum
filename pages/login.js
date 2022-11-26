@@ -1,3 +1,5 @@
+import MyFooter from "../components/footer";
+import MyLogin from "../components/login";
 import MyNavbar from "../components/navbar";
 
 const Login = () => {
@@ -5,8 +7,9 @@ const Login = () => {
         <>
             <MyNavbar />
             <div>
-                <h1>Login Page</h1>
+            <MyLogin/>
             </div>
+            <MyFooter/>
         </>
     );
 };
