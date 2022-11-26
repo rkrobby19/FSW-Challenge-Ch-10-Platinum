@@ -2,12 +2,14 @@ import { useEffect, useState } from "react";
 import Head from "next/head";
 import $ from "jquery";
 import style from "../../styles/Simon.module.css";
-import { Col, Container, Row } from "react-bootstrap";
+import { Button, Col, Container, Row } from "react-bootstrap";
 import MyNavbar from "../../components/navbar";
 import MyFooter from "../../components/footer";
 import GameButton from "../../components/simon_game/game_button";
 import ScoreTable from "../../components/simon_game/score_table";
 import TheSimonGame from "../../components/simon_game/simon_game";
+import { useSelector, useDispatch } from "react-redux";
+import { simonAction } from "../../redux/reducer/simon";
 
 const SimonGame = () => {
     const [play, setPlay] = useState(false);
@@ -17,6 +19,21 @@ const SimonGame = () => {
     let userPattern = [];
 
     let level = 0;
+
+    // * Redux
+    const currentLvl = useSelector((state) => state.simonReducer.level);
+    const currentRound = useSelector((state) => state.simonReducer.round);
+    const currentScore = useSelector((state) => state.simonReducer.score);
+    const dispatch = useDispatch();
+    const addLevel = () => {
+        dispatch(simonAction.increaseLevel());
+    };
+    const resetLevel = () => {
+        dispatch(simonAction.restartLevel());
+    };
+    const addRound = () => {
+        dispatch(simonAction.increaseRound());
+    };
 
     const playHandler = () => {
         setPlay(true);
@@ -104,7 +121,11 @@ const SimonGame = () => {
                 </h1>
                 <Row>
                     <Col sm="5">
-                        <ScoreTable />
+                        <ScoreTable
+                            score={currentScore}
+                            level={currentLvl}
+                            round={currentRound}
+                        />
                         <GameButton
                             play={playHandler}
                             restart={restartHandler}
