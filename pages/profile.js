@@ -6,6 +6,7 @@ import EditProfileModal from "../components/profile/edit_profile_modal";
 import GameHistory from "../components/profile/game_history";
 import ProfileCard from "../components/profile/profile_card";
 import MyFooter from "../components/footer";
+import { uploadProfileImage } from "../utils/user";
 
 const Profile = () => {
     const [show, setShow] = useState(false);
@@ -49,6 +50,12 @@ const Profile = () => {
         }
     };
 
+    // * Update user data
+    const updateUserData = async () => {
+        const url = await uploadProfileImage({ userId }, imageFile);
+        console.log(url);
+    };
+
     useEffect(() => {
         if (localStorage.getItem("jwt-token") === null) {
             window.location.href = "/login";
@@ -81,6 +88,7 @@ const Profile = () => {
                                 handleOnChange={handleOnChange}
                                 handleFileChange={handleFileChange}
                                 tempImgUrl={tempImgUrl}
+                                updateUserData={updateUserData}
                             />
                         </Container>
                     </Col>

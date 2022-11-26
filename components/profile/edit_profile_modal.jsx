@@ -2,8 +2,14 @@ import style from "./ProfileCard.module.css";
 import { Button, Col, Container, Form, Modal, Row } from "react-bootstrap";
 
 const EditProfileModal = (props) => {
-    const { show, handleClose, handleOnChange, handleFileChange, tempImgUrl } =
-        props;
+    const {
+        show,
+        handleClose,
+        handleOnChange,
+        handleFileChange,
+        tempImgUrl,
+        updateUserData,
+    } = props;
     return (
         <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
@@ -79,7 +85,13 @@ const EditProfileModal = (props) => {
                 <Button variant="danger" onClick={handleClose}>
                     Discard
                 </Button>
-                <Button variant="primary" onClick={handleClose}>
+                <Button
+                    variant="primary"
+                    onClick={() => {
+                        handleClose();
+                        updateUserData();
+                    }}
+                >
                     <i class="fa-solid fa-floppy-disk"></i>
                     {"   "}
                     Save
