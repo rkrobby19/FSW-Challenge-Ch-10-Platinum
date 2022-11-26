@@ -5,12 +5,49 @@ import MyNavbar from "../components/navbar";
 import EditProfileModal from "../components/profile/edit_profile_modal";
 import GameHistory from "../components/profile/game_history";
 import ProfileCard from "../components/profile/profile_card";
-import MyFooter from '../components/footer';
+import MyFooter from "../components/footer";
 
 const Profile = () => {
     const [show, setShow] = useState(false);
     const handleShow = () => setShow(true);
     const handleClose = () => setShow(false);
+
+    const [inputs, setInputs] = useState({
+        username: "",
+        fullname: "",
+        email: "",
+    });
+
+    const handleOnChange = (e) => {
+        const name = e.target.id;
+        const value = e.target.value;
+
+        setInputs((prev) => {
+            prev[name] = value;
+
+            return prev;
+        });
+    };
+
+    // * Setup for user upload image
+    const [imageFile, setImageFile] = useState();
+    const [tempImgUrl, setTempImgUrl] = useState(
+        "https://t4.ftcdn.net/jpg/02/15/84/43/360_F_215844325_ttX9YiIIyeaR7Ne6EaLLjMAmy4GvPC69.jpg"
+    );
+    const handleFileChange = (event) => {
+        const file = event.target.files[0];
+        console.log(file);
+        if (file) {
+            const reader = new FileReader();
+            setImageFile(file);
+            reader.onload = () => {
+                if (reader.readyState === 2) {
+                    setTempImgUrl(reader.result);
+                }
+            };
+            reader.readAsDataURL(file);
+        }
+    };
 
     return (
         <>
@@ -35,6 +72,9 @@ const Profile = () => {
                             <EditProfileModal
                                 show={show}
                                 handleClose={handleClose}
+                                handleOnChange={handleOnChange}
+                                handleFileChange={handleFileChange}
+                                tempImgUrl={tempImgUrl}
                             />
                         </Container>
                     </Col>
@@ -44,7 +84,7 @@ const Profile = () => {
                         <GameHistory />
                     </Col>
                 </Row>
-            </Container>         
+            </Container>
             <MyFooter />
         </>
     );
