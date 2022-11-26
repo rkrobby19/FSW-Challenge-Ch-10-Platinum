@@ -94,25 +94,46 @@ const MyFooter = () => {
                             <Button
                                 className="my-1 border border-2 rounded-pill"
                                 variant="dark"
-                                href="/scissor"
                             >
-                                SCISSSOR
+                                <Link
+                                    href="/games/rps_game"
+                                    style={{
+                                        textDecoration: "none",
+                                        color: "white",
+                                    }}
+                                >
+                                    SCISSOR
+                                </Link>
                             </Button>{" "}
                             <br></br>
                             <Button
                                 className="my-1 border border-2 rounded-pill"
                                 variant="dark"
-                                href="/simon"
                             >
-                                SIMON
+                                <Link
+                                    href="/games/simon_game"
+                                    style={{
+                                        textDecoration: "none",
+                                        color: "white",
+                                    }}
+                                >
+                                    SIMON
+                                </Link>
                             </Button>{" "}
                             <br></br>
                             <Button
                                 className="my-1 border border-2 rounded-pill"
                                 variant="dark"
-                                href="/dummy"
                             >
-                                DUMMY
+                                <Link
+                                    href="/games/dummy"
+                                    style={{
+                                        textDecoration: "none",
+                                        color: "white",
+                                    }}
+                                >
+                                    DUMMY
+                                </Link>
                             </Button>
                         </Card.Text>
                     </Col>
@@ -122,33 +143,61 @@ const MyFooter = () => {
                             <Button
                                 className="my-1 border border-2 rounded-pill"
                                 variant="dark"
-                                href="/home"
                             >
-                                HOME
+                                <Link
+                                    href="/"
+                                    style={{
+                                        textDecoration: "none",
+                                        color: "white",
+                                    }}
+                                >
+                                    HOME
+                                </Link>
                             </Button>
                             <br></br>
                             <Button
                                 className="my-1 border border-2 rounded-pill"
                                 variant="dark"
-                                href="/profile"
                             >
-                                PROFILE
+                                <Link
+                                    href="/profile"
+                                    style={{
+                                        textDecoration: "none",
+                                        color: "white",
+                                    }}
+                                >
+                                    PROFILE
+                                </Link>
                             </Button>
                             <br></br>
                             <Button
                                 className="my-1 border border-2 rounded-pill"
                                 variant="dark"
-                                href="/login"
                             >
-                                LOGIN
+                                <Link
+                                    href="/login"
+                                    style={{
+                                        textDecoration: "none",
+                                        color: "white",
+                                    }}
+                                >
+                                    LOGIN
+                                </Link>
                             </Button>
                             <br></br>
                             <Button
                                 className="my-1 border border-2 rounded-pill"
                                 variant="dark"
-                                href="/register"
                             >
-                                REGISTER
+                                <Link
+                                    href="/register"
+                                    style={{
+                                        textDecoration: "none",
+                                        color: "white",
+                                    }}
+                                >
+                                    REGISTER
+                                </Link>
                             </Button>
                         </Card.Text>
                     </Col>
