@@ -46,3 +46,19 @@
     color: orange;
     text-decoration: none;
 }
+
+.login_image {
+    width: 100%;
+    color: aqua;
+    margin-top: 90px;
+    margin-bottom: 40px;
+    vertical-align: middle;
+}
+
+.register_image {
+    width: 100%;
+    color: aqua;
+    margin-top: 90px;
+    margin-bottom: 40px;
+    vertical-align: middle;
+}

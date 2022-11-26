@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
+import { useState } from "react";
 import {
   Button,
   Col,
@@ -9,8 +11,23 @@ import {
   Row,
 } from "react-bootstrap";
 import style from "../styles/login.module.css";
+import { firebaseLogin } from "../util/auth";
 
 const MyLogin = () => {
+  const router = useRouter();
+  const [loginEmail, setLoginEmail] = useState("");
+  const [loginPassword, setLoginPassword] = useState("");
+  const [loginMsg, setLoginMsg] = useState("");
+
+  const submitLogin = async () => {
+    const resp = await firebaseLogin(loginEmail, loginPassword);
+    if (resp.status === "SUCCESS") {
+      router.push("/profile");
+    } else {
+      setLoginMsg(resp.message);
+    }
+  };
+
   return (
     <Container className={style.all}>
       <Row>
@@ -18,7 +35,7 @@ const MyLogin = () => {
           <Image
             src="https://bonx-react.pages.dev/static/1f5867f8036d938b9dfdaed5530c9249/a5da6/hero-position-img.webp"
             roundedCircle
-            width="100%"
+            className={style.login_image}
           />
         </Col>
         <Col>
@@ -29,6 +46,7 @@ const MyLogin = () => {
           <InputGroup>
             <Form.Control
               placeholder="Email"
+              onChange={(e) => setLoginEmail(e.target.value)}
               aria-label="Email"
               aria-describedby="basic-addon1"
               className={style.transparent}
@@ -37,6 +55,7 @@ const MyLogin = () => {
           <InputGroup>
             <Form.Control
               placeholder="Passwoord"
+              onChange={(e) => setLoginPassword(e.target.value)}
               type="Password"
               aria-label="Email"
               aria-describedby="basic-addon1"
@@ -47,10 +66,13 @@ const MyLogin = () => {
             <Button
               className={style.login_button}
               variant="dark"
-              href="/games/rps_game"
+              onClick={submitLogin}
             >
               Login
             </Button>
+          </div>
+          <div>
+            <h6 className="text-light">{loginMsg}</h6>
           </div>
           <div className="text-light ms-3 mt-3">
             <h4>

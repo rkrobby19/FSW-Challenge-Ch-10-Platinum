@@ -6,11 +6,16 @@ import EditProfileModal from "../components/profile/edit_profile_modal";
 import GameHistory from "../components/profile/game_history";
 import ProfileCard from "../components/profile/profile_card";
 import MyFooter from '../components/footer';
+import { useSelector } from "react-redux";
 
 const Profile = () => {
     const [show, setShow] = useState(false);
     const handleShow = () => setShow(true);
     const handleClose = () => setShow(false);
+
+    // const userData = useSelector((state) => {
+    //     return state.userReducer
+    // })
 
     return (
         <>
