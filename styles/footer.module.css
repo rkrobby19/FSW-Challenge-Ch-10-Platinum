@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap');
+
+.footer {
+    font-family: 'Secular One', sans-serif;
+    font-weight: 500;
+    margin: 70px 0px 50px 0px;
+    padding: 20px 30px 20px 30px;
+    background-image:linear-gradient(to right,  #632ce5 0%,  #921bcd 100% );
+    opacity: 80%;
+    color: white;
+    border-style: solid;
+    border-radius: 20px;
+    border-width: 5px;
+    border-color: blueviolet;
+}
+
+.footer:hover {
+    background-image:linear-gradient(to left,  #632ce5 0%,  #921bcd 100% );
+}
+

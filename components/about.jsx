@@ -1,116 +1,59 @@
-import { Col, Row, Card, Button } from "react-bootstrap";
+import Link from "next/link";
+import { Col, Row, Card, Button, Container } from "react-bootstrap";
+import style from "../styles/home.module.css";
 
 const MyAbout = () => {
   return (
-    <Card className="p-5 m-1  bg-transparent border border-2 border-light text-white ">
-      <h1 className="text-center mb-5">About Us</h1>
-      <Row className="border border-2 border-dark rounded-3 p-3">
-        <Col md={2} className="text-end d-flex align-items-center">
-          <Card.Img
-            variant="left"
-            src="https://cdn1.epicgames.com/offer/4b5461ca8d1c488787b5200b420de066/egs-shadowofthetombraiderdefinitiveedition-eidosmontralcrystaldynamicsnixxessoftware-s4-1200x1600-7ee40d6fa744_1200x1600-950cdb624cc75d04fe3c8c0b62ce98de?h=854&resize=1&w=640"
-            style={{ width: "100%" }}
-          />
+    <Container fluid className={style.about_border}>
+      <h1 className={style.about_header}>AMAZING TEAM</h1>
+      <Row>
+        <Col className={style.about}>
+          <Card className={style.card_main}>
+            <Card.Img
+              variant="top"
+              src="https://bonx-react.pages.dev/static/d161f004dec37a028adaf60369449636/9c0a1/8.webp"
+            />
+            <Card.Body className={style.card_text}>
+              <Card.Text>
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </Card.Text>
+              <Button variant="outline-dark mx-1 pd-5">IRWAN HADI</Button>
+            </Card.Body>
+          </Card>
         </Col>
-        <Col md={8}>
-          <Card.Body className="bg-dark">
-            <Card.Title className="text-info ">
-              <h2>Irwan</h2>
-            </Card.Title>
-            <Card.Text>
-              At vero eos et accusamus et iusto odio dignissimos ducimus qui
-              blanditiis praesentium voluptatum deleniti atque corrupti quos
-              dolores et quas molestias excepturi sint occaecati cupiditate non
-              provident, similique sunt in culpa qui officia deserunt mollitia
-              animi, id est laborum et dolorum fuga. Et harum quidem rerum
-              facilis est et expedita distinctio. Nam libero tempore, cum soluta
-              nobis est eligendi optio cumque nihil impedit quo minus id quod
-              maxime placeat facere possimus, omnis voluptas assumenda est,
-              omnis dolor repellendus. Temporibus autem quibusdam et aut
-              officiis debitis aut rerum necessitatibus saepe eveniet ut et
-              voluptates repudiandae sint et molestiae non recusandae. Itaque
-              earum rerum hic tenetur a sapiente delectus, ut aut reiciendis
-              voluptatibus maiores alias consequatur aut perferendis doloribus
-              asperiores repellat
-            </Card.Text>
-            <Button variant="outline-light">Go somewhere</Button>
-          </Card.Body>
+        <Col className={style.about}>
+          <Card className={style.card_main}>
+            <Card.Img
+              variant="top"
+              src="https://bonx-react.pages.dev/static/d161f004dec37a028adaf60369449636/9c0a1/8.webp"
+            />
+            <Card.Body className={style.card_text}>
+              <Card.Text>
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </Card.Text>
+              <Button variant="outline-dark mx-1">RIZKY ROBBY</Button>
+            </Card.Body>
+          </Card>
         </Col>
-      </Row>
-      <Row className="my-2 border border-2 border-dark rounded-3 p-3">
-        <Col md={{ span: 8, offset: 1 }} className="text-end">
-          <Card.Body className="bg-dark">
-            <Card.Title className="text-info ">
-              <h2>Robby</h2>
-            </Card.Title>
-            <Card.Text>
-              On the other hand, we denounce with righteous indignation and
-              dislike men who are so beguiled and demoralized by the charms of
-              pleasure of the moment, so blinded by desire, that they cannot
-              foresee the pain and trouble that are bound to ensue; and equal
-              blame belongs to those who fail in their duty through weakness of
-              will, which is the same as saying through shrinking from toil and
-              pain. These cases are perfectly simple and easy to distinguish. In
-              a free hour, when our power of choice is untrammelled and when
-              nothing prevents our being able to do what we like best, every
-              pleasure is to be welcomed and every pain avoided. But in certain
-              circumstances and owing to the claims of duty or the obligations
-              of business it will frequently occur that pleasures have to be
-              repudiated and annoyances accepted. The wise man therefore always
-              holds in these matters to this principle of selection: he rejects
-              pleasures to secure other greater pleasures, or else he endures
-              pains to avoid worse pains.
-            </Card.Text>
-            <Button variant="outline-light">Go somewhere</Button>
-          </Card.Body>
-        </Col>
-        <Col md={2} className="d-flex align-items-center">
-          <Card.Img
-            variant="right"
-            src="https://cdn1.epicgames.com/offer/4b5461ca8d1c488787b5200b420de066/egs-shadowofthetombraiderdefinitiveedition-eidosmontralcrystaldynamicsnixxessoftware-s4-1200x1600-7ee40d6fa744_1200x1600-950cdb624cc75d04fe3c8c0b62ce98de?h=854&resize=1&w=640"
-            style={{ width: "100%" }}
-          />
+        <Col className={style.about}>
+          <Card className={style.card_main}>
+            <Card.Img
+              variant="top"
+              src="https://bonx-react.pages.dev/static/d161f004dec37a028adaf60369449636/9c0a1/8.webp"
+            />
+            <Card.Body className={style.card_text}>
+              <Card.Text>
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </Card.Text>
+              <Button variant="outline-dark mx-1">M. RIZANO</Button>
+            </Card.Body>
+          </Card>
         </Col>
       </Row>
-      <Row className="border border-2 border-dark rounded-3 p-3">
-        <Col
-          md={{ span: 2, offset: 2 }}
-          className="text-end d-flex align-items-center"
-        >
-          <Card.Img
-            variant="left"
-            src="https://cdn1.epicgames.com/offer/4b5461ca8d1c488787b5200b420de066/egs-shadowofthetombraiderdefinitiveedition-eidosmontralcrystaldynamicsnixxessoftware-s4-1200x1600-7ee40d6fa744_1200x1600-950cdb624cc75d04fe3c8c0b62ce98de?h=854&resize=1&w=640"
-            style={{ width: "100%" }}
-          />
-        </Col>
-        <Col md={8}>
-          <Card.Body className="bg-dark">
-            <Card.Title className="text-info ">
-              <h2>Rizano</h2>
-            </Card.Title>
-            <Card.Text>
-              But I must explain to you how all this mistaken idea of denouncing
-              pleasure and praising pain was born and I will give you a complete
-              account of the system, and expound the actual teachings of the
-              great explorer of the truth, the master-builder of human
-              happiness. No one rejects, dislikes, or avoids pleasure itself,
-              because it is pleasure, but because those who do not know how to
-              pursue pleasure rationally encounter consequences that are
-              extremely painful. Nor again is there anyone who loves or pursues
-              or desires to obtain pain of itself, because it is pain, but
-              because occasionally circumstances occur in which toil and pain
-              can procure him some great pleasure. To take a trivial example,
-              which of us ever undertakes laborious physical exercise, except to
-              obtain some advantage from it? But who has any right to find fault
-              with a man who chooses to enjoy a pleasure that has no annoying
-              consequences, or one who avoids a pain that produces no resultant
-              pleasure?
-            </Card.Text>
-            <Button variant="outline-light">Go somewhere</Button>
-          </Card.Body>
-        </Col>
-      </Row>
-    </Card>
+    </Container>
   );
 };
 

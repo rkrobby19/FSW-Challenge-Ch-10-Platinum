@@ -1,18 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Rubik+Distressed&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap');
 
+
+.navbar {
+    margin: 20px;
+    background-image: url("https://img.freepik.com/free-vector/space-game-background-neon-night-alien-landscape_107791-1624.jpg?w=2000");
+    border-radius: 40px;
+}
+
+.brand {
+  font-family: 'Open Sans', sans-serif;
+  font-family: 'Rubik Distressed', cursive;
+  font-size: 40px;
+  color: blueviolet;
+  border-style: solid;
+  border-radius: 20px;
+  padding: 10px 40px 10px 40px;;
+}
 
 .nav_link{
+    font-family: 'Secular One', sans-serif;
+    font-weight: 500;
+    font-size: 25px;
     text-decoration: none;
     color: blueviolet ;
-    padding: 20px 30px 20px 30px;
     margin-left: 30px;
+    padding: 15px 30px 13px 30px;
+    transition: transform .5s; /* Animation */
 }
 
 .nav_link:hover{
     color: rgb(252, 251, 252) ;
-    /* padding: 5px 10px 5px 10px; */
+    padding: 12px 30px 12px 30px;
     border-style: solid;
     border-radius: 20px;
-    background: linear-gradient(to right, rgb(52, 14, 87), rgb(49, 13, 142), blueviolet);
+    background: linear-gradient(to bottom left, #632ce5 0%,  #921bcd 100%);
     border-color: white;
     box-shadow: 3px 3px 10px #f4f2f2;
+    transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
 }

@@ -1,12 +1,13 @@
 import Link from "next/link";
-import { Col, Button, Row } from "react-bootstrap";
+import { Col, Button, Row, Container } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
+import style from "../styles/footer.module.css";
 
 const MyFooter = () => {
   return (
-    <Card className=" my-5 mx-1 bg-transparent text-light border border-2 border-light">
+    <Container fluid className={style.footer}>
       <Card.Header>
-        <Row>
+        <Row className="my-4">
           <Col className="text-end mx-5">
             Get connected with us on social networks :
           </Col>
@@ -81,13 +82,14 @@ const MyFooter = () => {
       </Card.Header>
       <Card.Body>
         <Row>
-          <Col className="border border-3 border-dark p-3">
+          <Col className="p-3">
             <Card.Title>GROUP NAME :</Card.Title>
             <Card.Text>
-              We are team 2 from Fullstack Web Development with Binar Academy
+              We are team 2 for Challenge Chapter 10 from Fullstack Web
+              Development at Binar Academy
             </Card.Text>
           </Col>
-          <Col className="border border-3 border-dark p-3">
+          <Col className="p-3">
             <Card.Title>GAMES : </Card.Title>
             <Card.Text>
               <Link href="/games/rps_game">
@@ -119,7 +121,7 @@ const MyFooter = () => {
               </Link>
             </Card.Text>
           </Col>
-          <Col className="border border-3 border-dark p-3">
+          <Col className="p-3">
             <Card.Title>USEFUL LINKS :</Card.Title>
             <Card.Text>
               <Link href="/">
@@ -150,7 +152,7 @@ const MyFooter = () => {
               </Link>
             </Card.Text>
           </Col>
-          <Col className="border border-3 border-dark p-3">
+          <Col className="p-3">
             <Card.Title>CONTACT</Card.Title>
             <Card.Text>
               <svg
@@ -207,10 +209,10 @@ const MyFooter = () => {
           </Col>
         </Row>
       </Card.Body>
-      <Card.Footer className="text-center">
+      <Card.Footer className="text-center ">
         © 2021 Copyright: fsw24.com
       </Card.Footer>
-    </Card>
+    </Container>
   );
 };
 
