@@ -1,14 +1,25 @@
 import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
+import { useDispatch, useSelector } from "react-redux";
 import Head from "next/head";
-import { Col, Container, Row } from "react-bootstrap";
+import { Button, Col, Container, Row } from "react-bootstrap";
 import MyNavbar from "../components/navbar";
 import EditProfileModal from "../components/profile/edit_profile_modal";
 import GameHistory from "../components/profile/game_history";
 import ProfileCard from "../components/profile/profile_card";
 import MyFooter from "../components/footer";
 import { updateUserById, uploadProfileImage } from "../utils/user";
+import { validateUser } from "../util/validateUser";
+import { retrieveUserById } from "../redux/reducer/user";
 
 const Profile = () => {
+    const router = useRouter();
+    const dispatch = useDispatch();
+
+    const userData = useSelector((state) => {
+        return state.userReducer;
+    });
+
     const [show, setShow] = useState(false);
     const handleShow = () => setShow(true);
     const handleClose = () => setShow(false);
@@ -52,16 +63,25 @@ const Profile = () => {
     // * Update user data
     const updateUserData = async () => {
         if (imageFile) {
-            const url = await uploadProfileImage(userId, imageFile);
-            await updateUserById(userId, inputs, url);
+            const url = await uploadProfileImage(userData.uid, imageFile);
+            await updateUserById(userData.uid, inputs, url);
         } else {
-            await updateUserById(userId, inputs);
+            await updateUserById(userData.uid, inputs);
         }
+        // dispatch(retrieveUserById(userData.uid));
     };
 
     useEffect(() => {
-        if (localStorage.getItem("jwt-token") === null) {
-            window.location.href = "/login";
+        if (userData.uid === null) {
+            console.log("RETRIEVE DATA");
+            const user = validateUser();
+            if (user.status === "INVALID") {
+                router.push("/");
+            } else {
+                dispatch(retrieveUserById(user.uid));
+            }
+        } else {
+            console.log("user data exist:" + userData);
         }
     });
 
@@ -82,7 +102,10 @@ const Profile = () => {
                 <Row>
                     <Col sm={4}>
                         <Container>
-                            <ProfileCard showModal={handleShow} />
+                            <ProfileCard
+                                showModal={handleShow}
+                                userData={userData}
+                            />
 
                             {/* insert modal */}
                             <EditProfileModal
@@ -92,13 +115,12 @@ const Profile = () => {
                                 handleFileChange={handleFileChange}
                                 tempImgUrl={tempImgUrl}
                                 updateUserData={updateUserData}
+                                userData={userData}
                             />
                         </Container>
                     </Col>
                     <Col sm={8}>
-                        <Container></Container>
-
-                        <GameHistory />
+                        <GameHistory userData={userData} />
                     </Col>
                 </Row>
             </Container>

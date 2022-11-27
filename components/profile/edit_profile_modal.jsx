@@ -9,6 +9,7 @@ const EditProfileModal = (props) => {
         handleFileChange,
         tempImgUrl,
         updateUserData,
+        userData,
     } = props;
     return (
         <Modal show={show} onHide={handleClose}>
@@ -31,7 +32,7 @@ const EditProfileModal = (props) => {
                         <Col sm="9">
                             <Form.Control
                                 type="string"
-                                defaultValue="Fullname"
+                                defaultValue={userData.fullname}
                                 id="fullname"
                                 onChange={handleOnChange}
                             />
@@ -44,7 +45,7 @@ const EditProfileModal = (props) => {
                         <Col sm="9">
                             <Form.Control
                                 type="string"
-                                defaultValue="Username"
+                                defaultValue={userData.username}
                                 id="username"
                                 onChange={handleOnChange}
                             />
@@ -59,7 +60,7 @@ const EditProfileModal = (props) => {
                                 readOnly
                                 disabled
                                 type="email"
-                                defaultValue="user.email@gmail.com"
+                                defaultValue={userData.email}
                                 id="email"
                             />
                         </Col>

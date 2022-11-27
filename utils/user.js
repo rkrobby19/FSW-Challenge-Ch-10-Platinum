@@ -8,9 +8,20 @@ import {
 
 const db = databaseFirebase;
 
+// * Get userdata By Id
+export const getUserById = (id) => {
+    return new Promise((resolve, reject) => {
+        const dbRef = ref(db, `user/${id}`);
+        onValue(dbRef, (data) => {
+            const value = data.val();
+            resolve(value);
+        });
+    });
+};
+
 // * Update user data by Id
 export const updateUserById = (id, data, url) => {
-    const dbRef = ref(db, `users/${id}`);
+    const dbRef = ref(db, `user/${id}`);
     let updateData = {};
     if (url) {
         updateData = {
