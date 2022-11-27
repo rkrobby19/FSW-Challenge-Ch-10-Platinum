@@ -12,7 +12,6 @@ const MyCard = () => {
         <Col className={style.card_group}>
           <Card
             box-shadow="0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"
-            style={{ width: "18rem" }}
             className={style.card}
           >
             <Card.Img
@@ -27,13 +26,15 @@ const MyCard = () => {
                 scissors wins against paper. Variants of this game have been
                 recorded as early as the nineteenth century.
               </Card.Text>
-              <Button variant="outline-dark mx-1">Let's Play</Button>
+              <Link href="/games/rps_game">
+                <Button variant="outline-dark mx-1">Let's Play</Button>
+              </Link>
               <Button variant="warning mx-1">Already Played</Button>
             </Card.Body>
           </Card>
         </Col>
         <Col className={style.card_group}>
-          <Card style={{ width: "18rem" }} className={style.card}>
+          <Card className={style.card}>
             <Card.Img
               className={style.card_image}
               variant="top"
@@ -45,14 +46,15 @@ const MyCard = () => {
                 The device has four colored buttons, each producing a particular
                 tone when it is pressed or activated by the device.
               </Card.Text>
-              <Button variant="outline-dark mx-1">Let's Play</Button>
+              <Link href="/games/simon_game">
+                <Button variant="outline-dark mx-1">Let's Play</Button>
+              </Link>
             </Card.Body>
           </Card>
         </Col>
         <Col className={style.card_group}>
           <Card
             box-shadow="0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"
-            style={{ width: "18rem" }}
             className={style.card}
           >
             <Card.Img
@@ -67,7 +69,9 @@ const MyCard = () => {
                 the bulk of the card's content. Some quick example text and make
                 up the to.
               </Card.Text>
-              <Button variant="outline-dark mx-1">Let's Play</Button>
+              <Link href="/games/dummy_games">
+                <Button variant="outline-dark mx-1">Let's Play</Button>
+              </Link>
               <Button variant="warning mx-1">Already Played</Button>
             </Card.Body>
           </Card>

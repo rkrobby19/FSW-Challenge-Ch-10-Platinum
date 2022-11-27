@@ -24,11 +24,11 @@
     padding: 15px 60px 15px 60px;
     font-size: 20px;
     font-weight: 700;
-    color:blueviolet;
+    color:rgb(81, 18, 132);
     border-width: 3px;
     border-style: solid;
     border-radius: 20px;
-    background: linear-gradient(to left, rgb(52, 14, 87), rgb(49, 13, 142), blueviolet);
+    background: linear-gradient(to bottom left, #632ce5 0%,  #921bcd 100%);
     border-color: blueviolet;
     margin: 15px;
     transition: transform .5s; /* Animation */
@@ -36,7 +36,7 @@
 
 .login_button:hover {
     font-size: 25px;
-    background: linear-gradient(to right, rgb(52, 14, 87), rgb(49, 13, 142), blueviolet);
+    background: linear-gradient(to bottom left, #632ce5 0%,  #921bcd 100%);
     border-color: white;
     box-shadow: 3px 3px 10px #f4f2f2;
     transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */

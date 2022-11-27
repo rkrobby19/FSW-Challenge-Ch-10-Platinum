@@ -5,7 +5,7 @@
     font-weight: 500;
     margin: 70px 0px 50px 0px;
     padding: 20px 30px 20px 30px;
-    background-image:linear-gradient(to right,  rgb(77, 7, 176),  rgb(47, 6, 124) );
+    background-image:linear-gradient(to right,  #632ce5 0%,  #921bcd 100% );
     opacity: 80%;
     color: white;
     border-style: solid;
@@ -15,6 +15,6 @@
 }
 
 .footer:hover {
-    background-image:linear-gradient(to left,   rgb(77, 7, 176),  rgb(47, 6, 124) );
+    background-image:linear-gradient(to left,  #632ce5 0%,  #921bcd 100% );
 }
 
