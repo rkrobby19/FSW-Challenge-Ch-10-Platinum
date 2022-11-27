@@ -6,7 +6,7 @@ const RPSGame = () => {
         <>
             <MyNavbar />
             <div>
-                <h1>RPS Game Page</h1>
+                <h1>RPS Game Page guys</h1>
             </div>
             <MyFooter />
         </>
