@@ -1,13 +1,16 @@
-import { configureStore } from "@reduxjs/toolkit";
-import { combineReducers } from "redux";
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import loadingSlice from "../reducer/loading";
+import userSlice from "../reducer/user";
 import roundsSlice from "../reducer/scores_rps";
 
 const allReducers = combineReducers({
-    roundsReducer: roundsSlice.reducer
-})
+    userReducer: userSlice.reducer,
+    loadingReducer: loadingSlice.reducer,
+    roundsReducer: roundsSlice.reducer,
+});
 
 const myStore = configureStore({
-    reducer: allReducers
-})
+    reducer: allReducers,
+});
 
-export default myStore
+export default myStore;

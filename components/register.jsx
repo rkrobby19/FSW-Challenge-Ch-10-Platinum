@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
+import { useState } from "react";
 import {
   Button,
   Col,
@@ -8,16 +10,54 @@ import {
   InputGroup,
   Row,
 } from "react-bootstrap";
+import { SortNumericDown } from "react-bootstrap-icons";
 import style from "../styles/login.module.css";
+import { firebaseRegister } from "../util/auth";
+import { loadingAction } from "../redux/reducer/loading";
+import { useDispatch } from "react-redux";
+import MyButton from "./loading_button";
 
 const MyRegister = () => {
+  const router = useRouter();
+  const dispatch = useDispatch();
+  const [regFullname, setRegFullname] = useState("");
+  const [regUsername, setRegUsername] = useState("");
+  const [regEmail, setRegEmail] = useState("");
+  const [regPassword, setRegPassword] = useState("");
+  const [regMsg, setRegMsg] = useState("");
+
+  const submitRegister = async () => {
+    console.log(
+      "REGISTER BUTTON ",
+      regFullname,
+      regUsername,
+      regEmail,
+      regPassword
+    );
+    const resp = await firebaseRegister(
+      regFullname,
+      regUsername,
+      regEmail,
+      regPassword
+    );
+    console.log(resp);
+    if (resp.status === "ERROR") {
+      dispatch(loadingAction.toggleLoadingStatus());
+      setRegMsg(resp.message);
+    } else {
+      dispatch(loadingAction.toggleLoadingStatus());
+      setRegMsg("");
+      router.push("/profile");
+    }
+  };
   return (
-    <Container>
+    <Container className={style.all}>
       <Row>
         <Col>
           <Image
             src="https://htmldemo.net/bonx/bonx/assets/img/others/about-thumb.webp"
             roundedCircle
+            className={style.register_image}
           />
         </Col>
         <Col>
@@ -26,9 +66,20 @@ const MyRegister = () => {
           </div>
           <InputGroup>
             <Form.Control
-              placeholder="User Name"
+              placeholder="Full Name"
+              onChange={(e) => setRegFullname(e.target.value)}
               type="Text"
-              aria-label="Email"
+              aria-label="Full Name"
+              aria-describedby="basic-addon1"
+              className={style.transparent}
+            />
+          </InputGroup>
+          <InputGroup>
+            <Form.Control
+              placeholder="User Name"
+              onChange={(e) => setRegUsername(e.target.value)}
+              type="Text"
+              aria-label="User Name"
               aria-describedby="basic-addon1"
               className={style.transparent}
             />
@@ -36,6 +87,7 @@ const MyRegister = () => {
           <InputGroup>
             <Form.Control
               placeholder="Email"
+              onChange={(e) => setRegEmail(e.target.value)}
               aria-label="Email"
               aria-describedby="basic-addon1"
               className={style.transparent}
@@ -43,24 +95,31 @@ const MyRegister = () => {
           </InputGroup>
           <InputGroup>
             <Form.Control
-              placeholder="Passwoord"
+              placeholder="Password"
+              onChange={(e) => setRegPassword(e.target.value)}
               type="Password"
-              aria-label="Email"
+              aria-label="Password"
               aria-describedby="basic-addon1"
               className={style.transparent}
             />
           </InputGroup>
-
+          <div className="text-center">
+            <MyButton title="Login" />
+            <h6 className="text-light">{regMsg}</h6>
+          </div>
           <div className="text-center">
             <Button
               className={style.login_button}
               variant="dark"
-              href="/games/rps_game"
+              onClick={submitRegister}
             >
               Submit
             </Button>
           </div>
-          <div className="text-light ms-3 mt-5">
+          {/* <div>
+            <h6 className="text-light">{regMsg}</h6>
+          </div> */}
+          <div className="text-light ms-3 mt-3">
             <h4>
               Bak to Login Page{" "}
               <span className="color">
