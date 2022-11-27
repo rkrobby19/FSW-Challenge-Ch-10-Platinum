@@ -7,21 +7,15 @@
 .carousel_header h1 {
   font-family: 'Secular One', sans-serif;
   font-size: 150px;
-  background: #511BCF;
-background: linear-gradient(to bottom left, #632ce5 0%, #b619ff 50%, #921bcd 100%);
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
+  color:#c45af5;
 
 }
 
 .carousel_header p {
   font-family: 'Secular One', sans-serif;
   font-size: 20px;
-  background: #511BCF;
-  background: linear-gradient(to bottom left, #7545e3 0%, #b619ff 50%, #921bcd 100%);
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
-
+  color:#b737f2;
+  
 }
 
 .card_header {
@@ -29,10 +23,7 @@ background: linear-gradient(to bottom left, #632ce5 0%, #b619ff 50%, #921bcd 100
   text-align: center;
   font-family: 'Secular One', sans-serif;
   font-size: 80px;
-  background: #511BCF;
-background: linear-gradient(to bottom left, #9d9ca1 0%, #af92bc 50%, #7c4199 100%);
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
+  color:#b737f2;
 }
 .card_group {
   display: flex;

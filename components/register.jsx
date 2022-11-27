@@ -13,10 +13,13 @@ import {
 import { SortNumericDown } from "react-bootstrap-icons";
 import style from "../styles/login.module.css";
 import { firebaseRegister } from "../util/auth";
+import { loadingAction } from "../redux/reducer/loading";
+import { useDispatch } from "react-redux";
+import MyButton from "./loading_button";
 
 const MyRegister = () => {
   const router = useRouter();
-
+  const dispatch = useDispatch();
   const [regFullname, setRegFullname] = useState("");
   const [regUsername, setRegUsername] = useState("");
   const [regEmail, setRegEmail] = useState("");
@@ -39,8 +42,10 @@ const MyRegister = () => {
     );
     console.log(resp);
     if (resp.status === "ERROR") {
+      dispatch(loadingAction.toggleLoadingStatus());
       setRegMsg(resp.message);
     } else {
+      dispatch(loadingAction.toggleLoadingStatus());
       setRegMsg("");
       router.push("/profile");
     }
@@ -98,7 +103,10 @@ const MyRegister = () => {
               className={style.transparent}
             />
           </InputGroup>
-
+          <div className="text-center">
+            <MyButton title="Login" />
+            <h6 className="text-light">{regMsg}</h6>
+          </div>
           <div className="text-center">
             <Button
               className={style.login_button}
@@ -108,9 +116,9 @@ const MyRegister = () => {
               Submit
             </Button>
           </div>
-          <div>
+          {/* <div>
             <h6 className="text-light">{regMsg}</h6>
-          </div>
+          </div> */}
           <div className="text-light ms-3 mt-3">
             <h4>
               Bak to Login Page{" "}

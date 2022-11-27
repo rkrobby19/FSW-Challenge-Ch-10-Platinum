@@ -10,20 +10,27 @@ import {
   InputGroup,
   Row,
 } from "react-bootstrap";
+import { useDispatch } from "react-redux";
+import { loadingAction } from "../redux/reducer/loading";
 import style from "../styles/login.module.css";
 import { firebaseLogin } from "../util/auth";
+import MyButton from "./loading_button";
 
 const MyLogin = () => {
   const router = useRouter();
+  const dispatch = useDispatch();
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
   const [loginMsg, setLoginMsg] = useState("");
 
   const submitLogin = async () => {
+    dispatch(loadingAction.toggleLoadingStatus());
     const resp = await firebaseLogin(loginEmail, loginPassword);
     if (resp.status === "SUCCESS") {
+      dispatch(loadingAction.toggleLoadingStatus());
       router.push("/profile");
     } else {
+      dispatch(loadingAction.toggleLoadingStatus());
       setLoginMsg(resp.message);
     }
   };
@@ -63,17 +70,20 @@ const MyLogin = () => {
             />
           </InputGroup>
           <div className="text-center">
+            <MyButton title="Login" />
+            <h6 className="text-light">{loginMsg}</h6>
+          </div>
+          <div className="text-center">
             <Button
               className={style.login_button}
               variant="dark"
+              title="Login"
               onClick={submitLogin}
             >
               Login
             </Button>
           </div>
-          <div>
-            <h6 className="text-light">{loginMsg}</h6>
-          </div>
+          <div>{/* <h6 className="text-light">{loginMsg}</h6> */}</div>
           <div className="text-light ms-3 mt-3">
             <h4>
               Do not have any account ?,{" "}

@@ -7,21 +7,21 @@ const GameHistory = () => {
     return state.userReducer;
   });
 
-  //   useEffect(() => {
-  //     if (userData.uid === null) {
-  //       console.log("RETRIEVE DATA");
-  //       const user = validateUser();
-  //       if (user.status === "INVALID") {
-  //         router.push("/");
-  //       } else {
-  //         dispatch(retrieveUserById(user.uid));
-  //       }
+  // useEffect(() => {
+  //   if (userData.uid === null) {
+  //     console.log("RETRIEVE DATA");
+  //     const user = validateUser();
+  //     if (user.status === "INVALID") {
+  //       router.push("/");
+  //     } else {
+  //       dispatch(retrieveUserById(user.uid));
   //     }
-  //   }, []);
+  //   }
+  // }, []);
 
   return (
     <Container>
-      <h1>letx play {userData.fullname}</h1>
+      <h1>lets play {userData.fullname}</h1>
       <Table striped bordered hover variant="dark">
         <thead>
           <tr className="text-center">
