@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Head from "next/head";
 import $ from "jquery";
 import style from "../../styles/Simon.module.css";
-import { Button, Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import MyNavbar from "../../components/navbar";
 import MyFooter from "../../components/footer";
 import GameButton from "../../components/simon_game/game_button";
@@ -12,13 +12,10 @@ import { useSelector, useDispatch } from "react-redux";
 import { simonAction } from "../../redux/reducer/simon";
 
 const SimonGame = () => {
+    // * State
     const [play, setPlay] = useState(false);
-
-    let buttonColours = ["red", "blue", "green", "yellow"];
-    let gamePattern = [];
-    let userPattern = [];
-
-    let level = 0;
+    const [userPattern, setUserPattern] = useState([]);
+    const [gamePattern, setGamePattern] = useState([]);
 
     // * Redux
     const currentLvl = useSelector((state) => state.simonReducer.level);
@@ -34,33 +31,41 @@ const SimonGame = () => {
     const addRound = () => {
         dispatch(simonAction.increaseRound());
     };
+    const addScore = () => {
+        dispatch(simonAction.addScore());
+    };
+
+    let buttonColours = ["red", "blue", "green", "yellow"];
 
     const playHandler = () => {
         setPlay(true);
-        gamePlay();
+        addRound();
+        nextSequence();
     };
     const restartHandler = () => {
-        level = 0;
-        gamePattern = [];
-        userPattern = [];
+        setGamePattern([]);
+        setUserPattern([]);
         setPlay(false);
-    };
-
-    const gamePlay = () => {
-        if (play === true) {
-            nextSequence();
-        }
+        resetLevel();
+        console.log("game:" + gamePattern);
+        console.log("player:" + userPattern);
+        console.log(play);
     };
 
     const nextSequence = () => {
-        userPattern = [];
-        level++;
-        alert(`Level: ${level}`);
-        let randomNumber = Math.floor(Math.random() * 4);
-        let randomChosenColour = buttonColours[randomNumber];
-        gamePattern.push(randomChosenColour);
-
-        playRound(gamePattern);
+        console.log(play);
+        if (play === true) {
+            console.log(`play`);
+            setUserPattern([]);
+            addLevel();
+            let randomNumber = Math.floor(Math.random() * 4);
+            let randomChosenColour = buttonColours[randomNumber];
+            setGamePattern((prevArray) => [...prevArray, randomChosenColour]);
+            console.log(gamePattern);
+            playRound(gamePattern);
+        } else {
+            console.log(`not playing`);
+        }
     };
 
     const playRound = (sequence) => {
@@ -76,11 +81,14 @@ const SimonGame = () => {
     };
 
     const playerChoices = (e) => {
-        let userChoice = e.currentTarget.id;
-        userPattern.push(userChoice);
-        // playSound(userChoice);
+        if (e) {
+            let userChoice = e.currentTarget.id;
+            setUserPattern((prevArray) => [...prevArray, userChoice]);
+            console.log(userPattern);
+            // playSound(userChoice);
 
-        checkAnswer(userPattern.length - 1);
+            checkAnswer(userPattern.length - 1);
+        }
     };
 
     const checkAnswer = (currentLevel) => {
@@ -92,16 +100,15 @@ const SimonGame = () => {
             }
         } else {
             // playSound("wrong");
+            addScore();
             alert("Wrong, please restart and then play again");
-            startOver();
+            restartHandler();
         }
     };
 
-    const startOver = () => {
-        restartHandler();
-    };
-
-    useEffect(() => {}, []);
+    useEffect(() => {
+        playHandler();
+    }, []);
     return (
         <>
             <Head>

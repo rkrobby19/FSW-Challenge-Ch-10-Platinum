@@ -17,6 +17,9 @@ const simonSlice = createSlice({
         restartLevel: (state) => {
             state.level = 0;
         },
+        addScore: (state) => {
+            state.score = state.score + state.level * 10;
+        },
     },
 });
 

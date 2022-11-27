@@ -1,8 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
+import { combineReducers } from "redux";
 import simonSlice from "../reducer/simon";
 
-export const myStore = configureStore({
-    reducer: {
-        simonReducer: simonSlice.reducer,
-    },
+const allReducers = combineReducers({
+    simonReducer: simonSlice.reducer,
 });
+
+const myStore = configureStore({
+    reducer: allReducers,
+});
+
+export default myStore;
