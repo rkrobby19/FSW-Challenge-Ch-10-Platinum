@@ -5,10 +5,10 @@ import myStore from "../redux/store";
 
 function MyApp({ Component, pageProps }) {
     return (
-        <Provider store={ myStore }>
-            <Component {...pageProps} />        
+        <Provider store={myStore}>
+            <Component {...pageProps} />
         </Provider>
-    )
-   
+    );
+}
 
 export default MyApp;

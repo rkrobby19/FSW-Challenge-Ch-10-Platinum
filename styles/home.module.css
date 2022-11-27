@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap');
+
+.carousel_slide {
+ border-radius: 100px;
+}
+
+.carousel_header h1 {
+  font-family: 'Secular One', sans-serif;
+  font-size: 150px;
+  color:#c45af5;
+
+}
+
+.carousel_header p {
+  font-family: 'Secular One', sans-serif;
+  font-size: 20px;
+  color:#b737f2;
+  
+}
+
+.card_header {
+  padding-top: 50px;
+  text-align: center;
+  font-family: 'Secular One', sans-serif;
+  font-size: 80px;
+  color:#b737f2;
+}
+.card_group {
+  display: flex;
+  justify-content: center;
+  font-family: 'Secular One', sans-serif;
+}
+.card {
+  justify-content: center;
+  margin: 50px 20px 50px 20px;
+  box-shadow: 5px 5px 7px #6d6c6c;
+  transition: transform .5s; /* Animation */
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: scale(1.10); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  box-shadow: 10px 10px 10px #6d6c6c;
+}
+
+.card_image {
+  transition: transform .5s; /* Animation */
+}
+
+.card_image:hover {
+  transition: transform .5s ease;
+  transform: scale(1.9); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+.about {
+  padding: 50px;
+  background-color: transparent;
+  color: white;
+  font-family: 'Secular One', sans-serif;
+  font-weight: 500;
+}
+
+
+.about_border{
+  padding-top: 30px;
+  border-radius: 20px;
+}
+
+.about_border:hover {
+  background-image:linear-gradient(to top right,  #5615cf 0%,  #830fbe 100% );
+}
+
+.about_header {
+  text-align: center;
+  margin-top: 30px;
+  font-family: 'Secular One', sans-serif;
+  font-size: 80px;
+  border-radius: 50px;
+  background-image:linear-gradient(to left,  #632ce5 0%,  #921bcd 100% );
+  color: #9d9ca1;
+}
+
+.about_header:hover {
+  background-image:linear-gradient(to right,  #632ce5 0%,  #921bcd 100% );
+}
+
+.card_main{
+  justify-content: center;
+  margin: 50px 20px 50px 20px;
+  box-shadow: 5px 5px 7px #6d6c6c;
+  transition: transform .5s; /* Animation */
+  background-color: rgb(227, 143, 34); 
+  overflow: hidden;
+
+}
+
+.card_main:hover{
+  transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  box-shadow: 10px 10px 10px #6d6c6c;
+}
+
+.card_text {
+  margin-top: 350px;
+  position: absolute;
+  background-color: rgb(227, 143, 34);  
+  transition: transform .5s ease-in-out;
+  transform: scale(9);
+  transform-origin: 0 0;
+}
+
+.card_text:hover {
+  transform: scale(1) translateY(-30%);
+}
+
+
+  
+
+

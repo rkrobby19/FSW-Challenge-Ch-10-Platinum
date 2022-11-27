@@ -5,13 +5,12 @@ import roundsSlice from "../reducer/scores_rps";
 
 const allReducers = combineReducers({
     userReducer: userSlice.reducer,
-    loadingReducer: loadingSlice.reducer
-     roundsReducer: roundsSlice.reducer
-
-})
+    loadingReducer: loadingSlice.reducer,
+    roundsReducer: roundsSlice.reducer,
+});
 
 const myStore = configureStore({
-    reducer: allReducers
-})
+    reducer: allReducers,
+});
 
-export default myStore
+export default myStore;
