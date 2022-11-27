@@ -34,7 +34,7 @@ const Profile = () => {
                 <Row>
                     <Col sm={4}>
                         <Container>
-                            <ProfileCard showModal={handleShow} />
+                            <ProfileCard showModal={handleShow}/>
 
                             {/* insert modal */}
                             <EditProfileModal
