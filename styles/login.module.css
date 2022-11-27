@@ -1,0 +1,39 @@
+.transparent {
+    padding: 15px;
+    font-size: 20px;
+    border-width: 3px;
+    border-style: solid;
+    border-radius: 20px;
+    background: transparent;
+    border-color: blueviolet;
+    margin: 15px;
+}
+
+.transparent:last-of-type{
+    color: rgb(0, 110, 255);
+}
+
+.login_button {
+    padding: 15px 60px 15px 60px;
+    font-size: 20px;
+    font-weight: 700;
+    color:blueviolet;
+    border-width: 3px;
+    border-style: solid;
+    border-radius: 20px;
+    background: linear-gradient(to left, rgb(52, 14, 87), rgb(49, 13, 142), blueviolet);
+    border-color: blueviolet;
+    margin: 15px;
+}
+
+.login_button:hover {
+    font-size: 25px;
+    background: linear-gradient(to right, rgb(52, 14, 87), rgb(49, 13, 142), blueviolet);
+    border-color: white;
+    box-shadow: 3px 3px 10px #f4f2f2;
+}
+
+.color {
+    color: orange;
+    text-decoration: none;
+}

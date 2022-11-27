@@ -1,5 +1,3 @@
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 import MyCard from "../components/card";
 import MyCarousel from "../components/carousel";
 import MyNavbar from "../components/navbar";

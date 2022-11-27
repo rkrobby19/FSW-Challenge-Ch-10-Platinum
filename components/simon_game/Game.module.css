@@ -1,0 +1,67 @@
+.buttonRed {
+    margin: 25px;
+    display: inline-block;
+    height: 200px;
+    width: 200px;
+    border: 10px solid black;
+    border-radius: 20%;
+    background-color: red;
+}
+.buttonRed:hover {
+    box-shadow: 0 0 20px grey;
+}
+.buttonRed:active {
+    box-shadow: 0 0 20px white;
+    background-color: grey;
+}
+
+.buttonGreen {
+    margin: 25px;
+    display: inline-block;
+    height: 200px;
+    width: 200px;
+    border: 10px solid black;
+    border-radius: 20%;
+    background-color: green;
+}
+.buttonGreen:hover {
+    box-shadow: 0 0 20px grey;
+}
+.buttonGreen:active {
+    box-shadow: 0 0 20px white;
+    background-color: grey;
+}
+
+.buttonBlue {
+    margin: 25px;
+    display: inline-block;
+    height: 200px;
+    width: 200px;
+    border: 10px solid black;
+    border-radius: 20%;
+    background-color: Blue;
+}
+.buttonBlue:hover {
+    box-shadow: 0 0 20px grey;
+}
+.buttonBlue:active {
+    box-shadow: 0 0 20px white;
+    background-color: grey;
+}
+
+.buttonYellow {
+    margin: 25px;
+    display: inline-block;
+    height: 200px;
+    width: 200px;
+    border: 10px solid black;
+    border-radius: 20%;
+    background-color: Yellow;
+}
+.buttonYellow:hover {
+    box-shadow: 0 0 20px grey;
+}
+.buttonYellow:active {
+    box-shadow: 0 0 20px white;
+    background-color: grey;
+}
