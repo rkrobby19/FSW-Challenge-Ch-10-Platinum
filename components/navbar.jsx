@@ -1,39 +1,27 @@
-import { get } from "jquery";
 import Link from "next/link";
 import { useEffect } from "react";
-import { Button, Container, Nav, Navbar } from "react-bootstrap";
+import { Container, Nav, Navbar } from "react-bootstrap";
+import { useSelector } from "react-redux";
 import style from "../styles/nav.module.css";
 
 const MyNavbar = () => {
-  const getToken = () => {
-    const token = localStorage.getItem("jwt-token");
-    const show = console.log(token);
-    if (token === null || undefined) {
-      return {
-        status: "INVALID",
-        show: false,
-      };
-
-      console.log(show);
-    }
-    return {
-      status: "VALID",
-      show: true,
+    const handleLogout = () => {
+        let ans = window.confirm(`Are you sure want to logout?`);
+        if (ans) {
+            localStorage.removeItem("jwt-token");
+            alert(`Thanks for coming`);
+            window.location.href = "/login";
+        }
     };
-  };
-  const handleLogout = () => {
-    let ans = window.confirm(`Are you sure want to logout?`);
-    if (ans) {
-      localStorage.removeItem("jwt-token");
-      alert(`Thanks for coming`);
-      window.location.href = "/login";
-    }
-  };
 
-  useEffect(() => {
-    const mytoken = getToken();
-    console.log(mytoken);
-  }, []);
+
+    const userData = useSelector((state) => {
+        return state.userReducer;
+    });
+
+
+    useEffect(() => {}, []);
+
 
   return (
     <Navbar className={style.navbar} variant="dark" expand="lg">
@@ -52,18 +40,29 @@ const MyNavbar = () => {
             </Link>
           </Nav>
 
-          <Nav>
-            <Link href="" className={style.nav_link} onClick={handleLogout}>
-              LOGOUT
-            </Link>
-            <Link href="/login" className={style.nav_link}>
-              SIGN UP
-            </Link>
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
-  );
+                    <Nav>
+                        {!userData.uid ? (
+                            <>
+                                <Link href="/login" className={style.nav_link}>
+                                    SIGN UP
+                                </Link>
+                            </>
+                        ) : (
+                            <>
+                                <Link
+                                    href=""
+                                    className={style.nav_link}
+                                    onClick={handleLogout}
+                                >
+                                    LOGOUT
+                                </Link>
+                            </>
+                        )}
+                    </Nav>
+                </Navbar.Collapse>
+            </Container>
+        </Navbar>
+    );
 };
 
 export default MyNavbar;

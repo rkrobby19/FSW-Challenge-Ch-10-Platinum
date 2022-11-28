@@ -6,7 +6,13 @@ const ProfileCard = (props) => {
     return (
         <Card className={style.card}>
             <Card.Body className="text-center">
-                <img alt="" className={style.profilePic} />
+
+                <img
+                    src={userData.profileImg}
+                    alt=""
+                    className={style.profilePic}
+                />
+
                 <Card.Title>
                     <i className="fa-solid fa-user "></i>
                     {"   "}

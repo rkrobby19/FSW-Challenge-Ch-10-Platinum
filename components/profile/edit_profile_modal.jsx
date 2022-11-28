@@ -1,5 +1,7 @@
 import style from "./ProfileCard.module.css";
 import { Button, Col, Container, Form, Modal, Row } from "react-bootstrap";
+import { useSelector } from "react-redux";
+
 
 const EditProfileModal = (props) => {
     const {
@@ -9,8 +11,12 @@ const EditProfileModal = (props) => {
         handleFileChange,
         tempImgUrl,
         updateUserData,
-        userData,
     } = props;
+
+    const userData = useSelector((state) => {
+        return state.userReducer;
+    });
+
     return (
         <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
@@ -32,7 +38,10 @@ const EditProfileModal = (props) => {
                         <Col sm="9">
                             <Form.Control
                                 type="string"
+
+
                                 defaultValue={userData.fullname}
+
                                 id="fullname"
                                 onChange={handleOnChange}
                             />
@@ -45,7 +54,9 @@ const EditProfileModal = (props) => {
                         <Col sm="9">
                             <Form.Control
                                 type="string"
+
                                 defaultValue={userData.username}
+
                                 id="username"
                                 onChange={handleOnChange}
                             />

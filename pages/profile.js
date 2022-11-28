@@ -11,6 +11,8 @@ import MyFooter from "../components/footer";
 import { updateUserById, uploadProfileImage } from "../utils/user";
 import { validateUser } from "../util/validateUser";
 import { retrieveUserById } from "../redux/reducer/user";
+import { getScoreById } from "../utils/game";
+import { retrieveScoreById } from "../redux/reducer/score";
 
 const Profile = () => {
     const router = useRouter();
@@ -20,14 +22,17 @@ const Profile = () => {
         return state.userReducer;
     });
 
+    const scoreData = useSelector((state) => {
+        return state.scoreReducer;
+    });
+
     const [show, setShow] = useState(false);
     const handleShow = () => setShow(true);
     const handleClose = () => setShow(false);
 
     const [inputs, setInputs] = useState({
-        username: "",
-        fullname: "",
-        email: "",
+        username: userData.username,
+        fullname: userData.fullname,
     });
 
     const handleOnChange = (e) => {
@@ -68,7 +73,7 @@ const Profile = () => {
         } else {
             await updateUserById(userData.uid, inputs);
         }
-        // dispatch(retrieveUserById(userData.uid));
+        dispatch(retrieveUserById(userData.uid));
     };
 
     useEffect(() => {
@@ -79,6 +84,7 @@ const Profile = () => {
                 router.push("/");
             } else {
                 dispatch(retrieveUserById(user.uid));
+                dispatch(retrieveScoreById(user.uid));
             }
         } else {
             console.log("user data exist:" + userData);
@@ -120,7 +126,10 @@ const Profile = () => {
                         </Container>
                     </Col>
                     <Col sm={8}>
-                        <GameHistory userData={userData} />
+                        <GameHistory
+                            userData={userData}
+                            scoreData={scoreData}
+                        />
                     </Col>
                 </Row>
             </Container>
