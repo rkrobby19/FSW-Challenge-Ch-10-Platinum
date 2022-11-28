@@ -27,24 +27,22 @@ export const updateUserById = (id, data, url) => {
         updateData = {
             fullname: data.fullname,
             username: data.username,
-            email: data.email,
             profileImg: url,
         };
     } else {
         updateData = {
             fullname: data.fullname,
             username: data.username,
-            email: data.email,
         };
     }
 
     update(dbRef, updateData)
         .then(() => {
-            return console.log(`Data updated`);
+            return alert(`Data updated`);
         })
         .catch((error) => {
             console.log(error);
-            return console.log(`Data update failed`);
+            return alert(`Data update failed`);
         });
 };
 

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
 import Head from "next/head";
-import { Button, Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import MyNavbar from "../components/navbar";
 import EditProfileModal from "../components/profile/edit_profile_modal";
 import GameHistory from "../components/profile/game_history";
@@ -25,9 +25,8 @@ const Profile = () => {
     const handleClose = () => setShow(false);
 
     const [inputs, setInputs] = useState({
-        username: "",
-        fullname: "",
-        email: "",
+        username: userData.username,
+        fullname: userData.fullname,
     });
 
     const handleOnChange = (e) => {
@@ -68,7 +67,7 @@ const Profile = () => {
         } else {
             await updateUserById(userData.uid, inputs);
         }
-        // dispatch(retrieveUserById(userData.uid));
+        dispatch(retrieveUserById(userData.uid));
     };
 
     useEffect(() => {
