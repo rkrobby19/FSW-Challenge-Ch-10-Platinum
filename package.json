@@ -1,5 +1,4 @@
-
-
+{
   "name": "kelompok-2",
   "version": "0.1.0",
   "private": true,
@@ -30,4 +29,4 @@
   "devDependencies": {
     "@redux-devtools/core": "^3.13.1"
   }
-
+}
