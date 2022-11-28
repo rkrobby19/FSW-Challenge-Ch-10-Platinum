@@ -2,6 +2,7 @@ import style from "./ProfileCard.module.css";
 import { Button, Col, Container, Form, Modal, Row } from "react-bootstrap";
 import { useSelector } from "react-redux";
 
+
 const EditProfileModal = (props) => {
     const {
         show,
@@ -37,7 +38,10 @@ const EditProfileModal = (props) => {
                         <Col sm="9">
                             <Form.Control
                                 type="string"
-                                value={userData.fullname}
+
+
+                                defaultValue={userData.fullname}
+
                                 id="fullname"
                                 onChange={handleOnChange}
                             />
@@ -50,7 +54,9 @@ const EditProfileModal = (props) => {
                         <Col sm="9">
                             <Form.Control
                                 type="string"
-                                value={userData.username}
+
+                                defaultValue={userData.username}
+
                                 id="username"
                                 onChange={handleOnChange}
                             />

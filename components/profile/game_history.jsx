@@ -4,14 +4,18 @@ const GameHistory = (props) => {
     const { userData } = props;
     return (
         <Container>
+
             <h2 style={{ color: "white" }}>
                 Lets Play The Game @{userData.username}
             </h2>
+
             <Table striped bordered hover variant="dark">
                 <thead>
                     <tr className="text-center">
                         <th>Game</th>
+
                         <th>Score</th>
+
                     </tr>
                 </thead>
                 <tbody>

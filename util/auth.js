@@ -21,13 +21,16 @@ export const firebaseRegister = async (fullname, username, email, password) => {
             username: username,
             email: email,
             password: password,
+
             profileImg:
                 "https://t4.ftcdn.net/jpg/02/15/84/43/360_F_215844325_ttX9YiIIyeaR7Ne6EaLLjMAmy4GvPC69.jpg",
+
         };
 
         await insertUserBiodata(user.uid, data);
         return {
             status: "SUCCESS",
+
             data: data,
         };
     } catch (error) {
