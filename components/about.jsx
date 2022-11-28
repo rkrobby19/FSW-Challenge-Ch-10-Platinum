@@ -14,11 +14,11 @@ const MyAbout = () => {
               src="https://bonx-react.pages.dev/static/d161f004dec37a028adaf60369449636/9c0a1/8.webp"
             />
             <Card.Body className={style.card_text}>
+              <div className={style.name}>IRWAN HADI</div>
               <Card.Text>
                 Some quick example text to build on the card title and make up
                 the bulk of the card's content.
               </Card.Text>
-              <Button variant="outline-dark mx-1 pd-5">IRWAN HADI</Button>
             </Card.Body>
           </Card>
         </Col>
@@ -29,11 +29,11 @@ const MyAbout = () => {
               src="https://bonx-react.pages.dev/static/d161f004dec37a028adaf60369449636/9c0a1/8.webp"
             />
             <Card.Body className={style.card_text}>
+              <div className={style.name}>RIZKY ROBBY</div>
               <Card.Text>
                 Some quick example text to build on the card title and make up
                 the bulk of the card's content.
               </Card.Text>
-              <Button variant="outline-dark mx-1">RIZKY ROBBY</Button>
             </Card.Body>
           </Card>
         </Col>
@@ -44,11 +44,11 @@ const MyAbout = () => {
               src="https://bonx-react.pages.dev/static/d161f004dec37a028adaf60369449636/9c0a1/8.webp"
             />
             <Card.Body className={style.card_text}>
+              <div className={style.name}>M. RIZANO</div>
               <Card.Text>
                 Some quick example text to build on the card title and make up
                 the bulk of the card's content.
               </Card.Text>
-              <Button variant="outline-dark mx-1">M. RIZANO</Button>
             </Card.Body>
           </Card>
         </Col>

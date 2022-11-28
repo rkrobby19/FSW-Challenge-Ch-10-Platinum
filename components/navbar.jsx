@@ -1,20 +1,24 @@
 import { get } from "jquery";
 import Link from "next/link";
 import { useEffect } from "react";
-import { Container, Nav, Navbar } from "react-bootstrap";
+import { Button, Container, Nav, Navbar } from "react-bootstrap";
 import style from "../styles/nav.module.css";
 
 const MyNavbar = () => {
   const getToken = () => {
     const token = localStorage.getItem("jwt-token");
-    console.log(token);
+    const show = console.log(token);
     if (token === null || undefined) {
       return {
         status: "INVALID",
+        show: false,
       };
+
+      console.log(show);
     }
     return {
       status: "VALID",
+      show: true,
     };
   };
 
@@ -29,6 +33,7 @@ const MyNavbar = () => {
 
   useEffect(() => {
     const mytoken = getToken();
+    console.log(mytoken);
   }, []);
 
   return (
@@ -44,7 +49,7 @@ const MyNavbar = () => {
               HOME
             </Link>
             <Link href="/profile" className={style.nav_link}>
-              PROFILE
+              PROFILE PAGE
             </Link>
           </Nav>
 
