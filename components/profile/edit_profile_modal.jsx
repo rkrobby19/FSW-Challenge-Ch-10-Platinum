@@ -1,7 +1,22 @@
-import { Button, Col, Form, Modal, Row } from "react-bootstrap";
+import style from "./ProfileCard.module.css";
+import { Button, Col, Container, Form, Modal, Row } from "react-bootstrap";
+import { useSelector } from "react-redux";
+
 
 const EditProfileModal = (props) => {
-    const { show, handleClose } = props;
+    const {
+        show,
+        handleClose,
+        handleOnChange,
+        handleFileChange,
+        tempImgUrl,
+        updateUserData,
+    } = props;
+
+    const userData = useSelector((state) => {
+        return state.userReducer;
+    });
+
     return (
         <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
@@ -9,9 +24,12 @@ const EditProfileModal = (props) => {
             </Modal.Header>
             <Modal.Body>
                 <Form>
+                    <Container className="text-center">
+                        <img src={tempImgUrl} className={style.profilePic} />
+                    </Container>
                     <Form.Group className="mb-3">
                         <Form.Label>Upload your profile pic</Form.Label>
-                        <Form.Control type="file" />
+                        <Form.Control type="file" onChange={handleFileChange} />
                     </Form.Group>
                     <Form.Group as={Row} className="mb-3">
                         <Form.Label column sm="3">
@@ -20,8 +38,12 @@ const EditProfileModal = (props) => {
                         <Col sm="9">
                             <Form.Control
                                 type="string"
-                                defaultValue="Fullname"
+
+
+                                defaultValue={userData.fullname}
+
                                 id="fullname"
+                                onChange={handleOnChange}
                             />
                         </Col>
                     </Form.Group>
@@ -32,8 +54,11 @@ const EditProfileModal = (props) => {
                         <Col sm="9">
                             <Form.Control
                                 type="string"
-                                defaultValue="Username"
+
+                                defaultValue={userData.username}
+
                                 id="username"
+                                onChange={handleOnChange}
                             />
                         </Col>
                     </Form.Group>
@@ -44,8 +69,9 @@ const EditProfileModal = (props) => {
                         <Col sm="9">
                             <Form.Control
                                 readOnly
+                                disabled
                                 type="email"
-                                defaultValue="user.email@gmail.com"
+                                defaultValue={userData.email}
                                 id="email"
                             />
                         </Col>
@@ -58,6 +84,7 @@ const EditProfileModal = (props) => {
                         <Col sm="9">
                             <Form.Control
                                 readOnly
+                                disabled
                                 type="password"
                                 defaultValue="*******"
                                 id="password"
@@ -74,6 +101,7 @@ const EditProfileModal = (props) => {
                     variant="primary"
                     onClick={() => {
                         handleClose();
+                        updateUserData();
                     }}
                 >
                     <i class="fa-solid fa-floppy-disk"></i>
