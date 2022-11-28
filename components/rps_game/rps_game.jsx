@@ -17,10 +17,6 @@ const RpsGame = (props) => {
     }
     return(
         <div className={style.game_main}>
-            <div class={style.header}>
-                <img src="/logo 1.png" alt="" class={style.logo} />
-                <h1 class={style.header_text}>ROCK PAPER SCISSORS</h1>
-            </div>
             <div class={style.content}>
                 <div class={style.player}>
                     <h1 class={style.content_text}>PLAYER 1</h1>
