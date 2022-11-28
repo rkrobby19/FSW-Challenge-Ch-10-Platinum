@@ -7,7 +7,27 @@
     margin: 2.5rem auto;
     max-width: 320px;
     text-align: center;
-    position: absolute;
-    margin-top: 35vh;
-    margin-left: 15vh;
+    margin-left: 10vw;
+}
+
+.header {
+    margin-top: 20vh;
+    margin-left: 5vw;
+    margin-bottom: 10vh;
+}
+
+.logo {
+    width: 72px;
+    height: 72px;
+    margin-left: 20px;
+    display: inline;
+}
+
+.header_text {
+    font-family: 'Open Sans';
+    font-weight: 700;
+    font-size: 36px;
+    color: #F9B23D;
+    margin-left: 20px;
+    display: inline;
 }

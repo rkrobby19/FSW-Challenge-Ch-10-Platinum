@@ -4,11 +4,14 @@ import userSlice from "../reducer/user";
 import roundsSlice from "../reducer/scores_rps";
 import scoreSlice from "../reducer/score";
 
+
 const allReducers = combineReducers({
     userReducer: userSlice.reducer,
     loadingReducer: loadingSlice.reducer,
     roundsReducer: roundsSlice.reducer,
+
     scoreReducer: scoreSlice.reducer,
+
 });
 
 const myStore = configureStore({
