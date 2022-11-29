@@ -3,14 +3,10 @@ import { createSlice } from "@reduxjs/toolkit";
 const simonSlice = createSlice({
     name: "simon",
     initialState: {
-        round: 0,
         level: 0,
         score: 0,
     },
     reducers: {
-        increaseRound: (state) => {
-            state.round = state.round + 1;
-        },
         increaseLevel: (state) => {
             state.level = state.level + 1;
         },
@@ -20,6 +16,9 @@ const simonSlice = createSlice({
         addScore: (state) => {
             state.score = state.score + state.level * 10;
         },
+        restartScore: (state) => {
+            state.score = 0;
+        }
     },
 });
 

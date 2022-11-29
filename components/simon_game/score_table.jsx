@@ -15,10 +15,6 @@ const ScoreTable = (props) => {
                 >
                     <tbody>
                         <tr>
-                            <td>Round</td>
-                            <td>{round}</td>
-                        </tr>
-                        <tr>
                             <td>Level</td>
                             <td>{level}</td>
                         </tr>

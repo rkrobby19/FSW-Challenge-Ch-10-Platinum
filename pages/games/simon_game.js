@@ -19,7 +19,6 @@ const SimonGame = () => {
 
     // * Redux
     const currentLvl = useSelector((state) => state.simonReducer.level);
-    const currentRound = useSelector((state) => state.simonReducer.round);
     const currentScore = useSelector((state) => state.simonReducer.score);
     const dispatch = useDispatch();
     const addLevel = () => {
@@ -28,6 +27,9 @@ const SimonGame = () => {
     const resetLevel = () => {
         dispatch(simonAction.restartLevel());
     };
+    const resetScore = () => {
+        dispatch(simonAction.restartScore())
+    }
     const addRound = () => {
         dispatch(simonAction.increaseRound());
     };
@@ -39,14 +41,13 @@ const SimonGame = () => {
 
     const playHandler = () => {
         setPlay(true);
-        addRound();
-        nextSequence();
     };
     const restartHandler = () => {
         setGamePattern([]);
         setUserPattern([]);
         setPlay(false);
         resetLevel();
+        resetScore();
         console.log("game:" + gamePattern);
         console.log("player:" + userPattern);
         console.log(play);
@@ -62,7 +63,7 @@ const SimonGame = () => {
             let randomChosenColour = buttonColours[randomNumber];
             setGamePattern((prevArray) => [...prevArray, randomChosenColour]);
             console.log(gamePattern);
-            playRound(gamePattern);
+            // playRound(gamePattern);
         } else {
             console.log(`not playing`);
         }
@@ -87,7 +88,7 @@ const SimonGame = () => {
             console.log(userPattern);
             // playSound(userChoice);
 
-            checkAnswer(userPattern.length - 1);
+            // checkAnswer(userPattern.length - 1);
         }
     };
 
@@ -102,13 +103,22 @@ const SimonGame = () => {
             // playSound("wrong");
             addScore();
             alert("Wrong, please restart and then play again");
-            restartHandler();
+            // restartHandler();
         }
     };
 
     useEffect(() => {
-        playHandler();
-    }, []);
+        nextSequence();
+    }, [play]);
+
+    useEffect(() => {
+        playRound(gamePattern)
+    },[gamePattern])
+
+    useEffect(() => {
+        checkAnswer(userPattern.length - 1);
+    },[userPattern])
+
     return (
         <>
             <Head>
@@ -131,7 +141,6 @@ const SimonGame = () => {
                         <ScoreTable
                             score={currentScore}
                             level={currentLvl}
-                            round={currentRound}
                         />
                         <GameButton
                             play={playHandler}
