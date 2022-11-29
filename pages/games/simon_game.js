@@ -12,6 +12,8 @@ import TheSimonGame from "../../components/simon_game/simon_game";
 import { useSelector, useDispatch } from "react-redux";
 import { simonAction } from "../../redux/reducer/simon";
 import { validateUser } from "../../util/validateUser";
+import { retrieveUserById } from "../../redux/reducer/user";
+import { retrieveScoreById } from "../../redux/reducer/score";
 
 const SimonGame = () => {
     const router = useRouter();
