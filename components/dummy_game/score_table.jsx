@@ -1,24 +1,22 @@
 import style from "./Score.module.css";
 import { Button, Card, Table } from "react-bootstrap";
-import { useDispatch, useSelector } from "react-redux";
 import { insertUserScore } from "../../util/scores";
+import { useSelector } from "react-redux";
 
 const ScoreTable = (props) => {
-    const { round, level, score } = props;
-
     const scoreData = useSelector((state) => {
-        return state.scoreReducer;
-    });
-    const dispatch = useDispatch();
+        return state.scoreReducer
+    })
 
     const handleSave = () => {
         const data = {
-            dummy: scoreData.dummy,
-            rps: roundsData.total.score + scoreData.rps,
-        };
-        console.log(scoreData.rps);
-        insertUserScore(props.userId, data);
-    };
+            dummy: scoreData.dummy + props.score,
+            rps: scoreData.rps
+        }
+        console.log(scoreData.dummy)
+        insertUserScore(props.userId, data)
+    }
+
     return (
         <Card className={style.score}>
             <Card.Body>
@@ -31,19 +29,13 @@ const ScoreTable = (props) => {
                 >
                     <tbody>
                         <tr>
-                            <td>Level</td>
-                            <td>{level}</td>
-                        </tr>
-                        <tr>
                             <td>Score</td>
-                            <td>{score}</td>
+                            <td>{props.score}</td>
                         </tr>
                     </tbody>
                 </Table>
 
-                <Button className="mt-3" ocClick={handleSave}>
-                    Save
-                </Button>
+                <Button className="mt-3" onClick={() => {handleSave()}}>Save</Button>
             </Card.Body>
         </Card>
     );
