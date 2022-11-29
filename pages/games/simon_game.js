@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 import Head from "next/head";
 import $ from "jquery";
 import style from "../../styles/Simon.module.css";
@@ -8,42 +9,70 @@ import MyFooter from "../../components/footer";
 import GameButton from "../../components/simon_game/game_button";
 import ScoreTable from "../../components/simon_game/score_table";
 import TheSimonGame from "../../components/simon_game/simon_game";
+import { useSelector, useDispatch } from "react-redux";
+import { simonAction } from "../../redux/reducer/simon";
+import { validateUser } from "../../util/validateUser";
 
 const SimonGame = () => {
+    const router = useRouter();
+    const userData = useSelector((state) => {
+        return state.userReducer;
+    });
+
+    // * State
     const [play, setPlay] = useState(false);
+    const [userPattern, setUserPattern] = useState([]);
+    const [gamePattern, setGamePattern] = useState([]);
+
+    // * Redux
+    const currentLvl = useSelector((state) => state.simonReducer.level);
+    const currentRound = useSelector((state) => state.simonReducer.round);
+    const currentScore = useSelector((state) => state.simonReducer.score);
+    const dispatch = useDispatch();
+    const addLevel = () => {
+        dispatch(simonAction.increaseLevel());
+    };
+    const resetLevel = () => {
+        dispatch(simonAction.restartLevel());
+    };
+    const addRound = () => {
+        dispatch(simonAction.increaseRound());
+    };
+    const addScore = () => {
+        dispatch(simonAction.addScore());
+    };
 
     let buttonColours = ["red", "blue", "green", "yellow"];
-    let gamePattern = [];
-    let userPattern = [];
-
-    let level = 0;
 
     const playHandler = () => {
         setPlay(true);
-        gamePlay();
+        addRound();
+        nextSequence();
     };
     const restartHandler = () => {
-        level = 0;
-        gamePattern = [];
-        userPattern = [];
+        setGamePattern([]);
+        setUserPattern([]);
         setPlay(false);
-    };
-
-    const gamePlay = () => {
-        if (play === true) {
-            nextSequence();
-        }
+        resetLevel();
+        console.log("game:" + gamePattern);
+        console.log("player:" + userPattern);
+        console.log(play);
     };
 
     const nextSequence = () => {
-        userPattern = [];
-        level++;
-        alert(`Level: ${level}`);
-        let randomNumber = Math.floor(Math.random() * 4);
-        let randomChosenColour = buttonColours[randomNumber];
-        gamePattern.push(randomChosenColour);
-
-        playRound(gamePattern);
+        console.log(play);
+        if (play === true) {
+            console.log(`play`);
+            setUserPattern([]);
+            addLevel();
+            let randomNumber = Math.floor(Math.random() * 4);
+            let randomChosenColour = buttonColours[randomNumber];
+            setGamePattern((prevArray) => [...prevArray, randomChosenColour]);
+            console.log(gamePattern);
+            playRound(gamePattern);
+        } else {
+            console.log(`not playing`);
+        }
     };
 
     const playRound = (sequence) => {
@@ -59,11 +88,14 @@ const SimonGame = () => {
     };
 
     const playerChoices = (e) => {
-        let userChoice = e.currentTarget.id;
-        userPattern.push(userChoice);
-        // playSound(userChoice);
+        if (e) {
+            let userChoice = e.currentTarget.id;
+            setUserPattern((prevArray) => [...prevArray, userChoice]);
+            console.log(userPattern);
+            // playSound(userChoice);
 
-        checkAnswer(userPattern.length - 1);
+            checkAnswer(userPattern.length - 1);
+        }
     };
 
     const checkAnswer = (currentLevel) => {
@@ -75,16 +107,26 @@ const SimonGame = () => {
             }
         } else {
             // playSound("wrong");
+            addScore();
             alert("Wrong, please restart and then play again");
-            startOver();
+            restartHandler();
         }
     };
 
-    const startOver = () => {
-        restartHandler();
-    };
-
-    useEffect(() => {}, []);
+    useEffect(() => {
+        if (userData.uid === null) {
+            console.log("RETRIEVE DATA");
+            const user = validateUser();
+            if (user.status === "INVALID") {
+                router.push("/");
+            } else {
+                dispatch(retrieveUserById(user.uid));
+                dispatch(retrieveScoreById(user.uid));
+            }
+        } else {
+            console.log("user data exist:" + userData);
+        }
+    }, []);
     return (
         <>
             <Head>
@@ -104,7 +146,11 @@ const SimonGame = () => {
                 </h1>
                 <Row>
                     <Col sm="5">
-                        <ScoreTable />
+                        <ScoreTable
+                            score={currentScore}
+                            level={currentLvl}
+                            round={currentRound}
+                        />
                         <GameButton
                             play={playHandler}
                             restart={restartHandler}

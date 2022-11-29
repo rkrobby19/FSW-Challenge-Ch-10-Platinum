@@ -1,7 +1,8 @@
 import style from "./Score.module.css";
 import { Button, Card, Table } from "react-bootstrap";
 
-const ScoreTable = () => {
+const ScoreTable = (props) => {
+    const { round, level, score } = props;
     return (
         <Card className={style.score}>
             <Card.Body>
@@ -15,15 +16,15 @@ const ScoreTable = () => {
                     <tbody>
                         <tr>
                             <td>Round</td>
-                            <td>3</td>
+                            <td>{round}</td>
                         </tr>
                         <tr>
                             <td>Level</td>
-                            <td>2</td>
+                            <td>{level}</td>
                         </tr>
                         <tr>
                             <td>Score</td>
-                            <td>30</td>
+                            <td>{score}</td>
                         </tr>
                     </tbody>
                 </Table>
