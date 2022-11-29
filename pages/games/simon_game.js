@@ -13,7 +13,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { simonAction } from "../../redux/reducer/simon";
 import { validateUser } from "../../util/validateUser";
 import { retrieveUserById } from "../../redux/reducer/user";
-import { retrieveScoreById } from "../../redux/reducer/score";
+import { retrieveScoreById } from "../../redux/reducer/scores";
 
 const SimonGame = () => {
     const router = useRouter();
@@ -25,6 +25,7 @@ const SimonGame = () => {
     const [play, setPlay] = useState(false);
     const [userPattern, setUserPattern] = useState([]);
     const [gamePattern, setGamePattern] = useState([]);
+    const [user, setUser] = useState({})
 
     // * Redux
     const currentLvl = useSelector((state) => state.simonReducer.level);
@@ -118,6 +119,7 @@ const SimonGame = () => {
 
     useEffect(() => {
         nextSequence();
+        console.log(play)
     }, [play]);
 
     useEffect(() => {
@@ -127,6 +129,18 @@ const SimonGame = () => {
     useEffect(() => {
         checkAnswer(userPattern.length - 1);
     },[userPattern])
+
+    useEffect(() => {
+        const data = validateUser()
+        setUser(data)
+        if(data.status == "INVALID"){
+            router.push("/")
+        }
+    },[])
+
+    useEffect(() => {
+        dispatch(retrieveScoreById(user.uid))
+    },[currentScore])
 
     return (
         <>
@@ -150,8 +164,10 @@ const SimonGame = () => {
                         <ScoreTable
                             score={currentScore}
                             level={currentLvl}
+                            userId={user.uid}
                         />
                         <GameButton
+                            isPlay={play}
                             play={playHandler}
                             restart={restartHandler}
                         />
