@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Col, Row, Card, Button, Container } from "react-bootstrap";
-import style from "../styles/home.module.css";
+import style from "../styles/Home.module.css";
 
 const MyAbout = () => {
   return (

@@ -1,4 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap');
+
 .card {
+    font-family: 'Secular One', sans-serif;
     border-radius: 25px;
 }
 .profilePic {
@@ -7,4 +10,27 @@
     width: 150px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     margin-bottom: 1rem;
+}
+
+.font {
+    font-family: 'Secular One', sans-serif;
+
+}
+
+.font h2 {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.font span {
+  color: rgb(182, 121, 16);
+  font-size: 50px;
+}
+
+.font Table {
+    border-color: rgb(158, 72, 239);
+}
+
+.font Table th{
+    font-size: 25px;
 }
