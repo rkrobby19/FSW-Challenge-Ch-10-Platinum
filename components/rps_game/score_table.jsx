@@ -20,6 +20,7 @@ const ScoreTable = (props) => {
 
     const handleSave = () => {
         const data = {
+            simon: scoreData.simon,
             dummy: scoreData.dummy,
             rps: roundsData.total.score + scoreData.rps
         }

@@ -13,7 +13,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { simonAction } from "../../redux/reducer/simon";
 import { validateUser } from "../../util/validateUser";
 import { retrieveUserById } from "../../redux/reducer/user";
-import { retrieveScoreById } from "../../redux/reducer/score";
+import { retrieveScoreById } from "../../redux/reducer/scores";
 
 const SimonGame = () => {
     const router = useRouter();
@@ -25,10 +25,10 @@ const SimonGame = () => {
     const [play, setPlay] = useState(false);
     const [userPattern, setUserPattern] = useState([]);
     const [gamePattern, setGamePattern] = useState([]);
+    const [user, setUser] = useState({})
 
     // * Redux
     const currentLvl = useSelector((state) => state.simonReducer.level);
-    const currentRound = useSelector((state) => state.simonReducer.round);
     const currentScore = useSelector((state) => state.simonReducer.score);
     const dispatch = useDispatch();
     const addLevel = () => {
@@ -37,6 +37,9 @@ const SimonGame = () => {
     const resetLevel = () => {
         dispatch(simonAction.restartLevel());
     };
+    const resetScore = () => {
+        dispatch(simonAction.restartScore())
+    }
     const addRound = () => {
         dispatch(simonAction.increaseRound());
     };
@@ -48,14 +51,13 @@ const SimonGame = () => {
 
     const playHandler = () => {
         setPlay(true);
-        addRound();
-        nextSequence();
     };
     const restartHandler = () => {
         setGamePattern([]);
         setUserPattern([]);
         setPlay(false);
         resetLevel();
+        resetScore();
         console.log("game:" + gamePattern);
         console.log("player:" + userPattern);
         console.log(play);
@@ -71,7 +73,7 @@ const SimonGame = () => {
             let randomChosenColour = buttonColours[randomNumber];
             setGamePattern((prevArray) => [...prevArray, randomChosenColour]);
             console.log(gamePattern);
-            playRound(gamePattern);
+            // playRound(gamePattern);
         } else {
             console.log(`not playing`);
         }
@@ -96,7 +98,7 @@ const SimonGame = () => {
             console.log(userPattern);
             // playSound(userChoice);
 
-            checkAnswer(userPattern.length - 1);
+            // checkAnswer(userPattern.length - 1);
         }
     };
 
@@ -111,24 +113,35 @@ const SimonGame = () => {
             // playSound("wrong");
             addScore();
             alert("Wrong, please restart and then play again");
-            restartHandler();
+            // restartHandler();
         }
     };
 
     useEffect(() => {
-        if (userData.uid === null) {
-            console.log("RETRIEVE DATA");
-            const user = validateUser();
-            if (user.status === "INVALID") {
-                router.push("/");
-            } else {
-                dispatch(retrieveUserById(user.uid));
-                dispatch(retrieveScoreById(user.uid));
-            }
-        } else {
-            console.log("user data exist:" + userData);
+        nextSequence();
+        console.log(play)
+    }, [play]);
+
+    useEffect(() => {
+        playRound(gamePattern)
+    },[gamePattern])
+
+    useEffect(() => {
+        checkAnswer(userPattern.length - 1);
+    },[userPattern])
+
+    useEffect(() => {
+        const data = validateUser()
+        setUser(data)
+        if(data.status == "INVALID"){
+            router.push("/")
         }
-    }, []);
+    },[])
+
+    useEffect(() => {
+        dispatch(retrieveScoreById(user.uid))
+    },[currentScore])
+
     return (
         <>
             <Head>
@@ -151,9 +164,10 @@ const SimonGame = () => {
                         <ScoreTable
                             score={currentScore}
                             level={currentLvl}
-                            round={currentRound}
+                            userId={user.uid}
                         />
                         <GameButton
+                            isPlay={play}
                             play={playHandler}
                             restart={restartHandler}
                         />

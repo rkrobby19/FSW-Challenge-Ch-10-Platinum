@@ -10,7 +10,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { action } from "../../redux/reducer/scores_rps";
 import { validateUser } from "../../util/validateUser";
 import { useRouter } from "next/router";
-import { retrieveScoreById } from "../../redux/reducer/score";
+import { retrieveScoreById } from "../../redux/reducer/scores";
 
 const RPSGame = () => {
     const router = useRouter();
