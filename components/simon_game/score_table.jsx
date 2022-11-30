@@ -14,9 +14,10 @@ const ScoreTable = (props) => {
     const handleSave = () => {
         const data = {
             dummy: scoreData.dummy,
-            rps: roundsData.total.score + scoreData.rps,
+            rps: scoreData.rps,
+            simon: score + scoreData.simon
         };
-        console.log(scoreData.rps);
+        console.log(scoreData.simon);
         insertUserScore(props.userId, data);
     };
     return (
@@ -41,7 +42,7 @@ const ScoreTable = (props) => {
                     </tbody>
                 </Table>
 
-                <Button className="mt-3" ocClick={handleSave}>
+                <Button className="mt-3" onClick={() => {handleSave()}}>
                     Save
                 </Button>
             </Card.Body>

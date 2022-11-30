@@ -7,7 +7,8 @@ export const retrieveScoreById = createAsyncThunk(
         const resp = await getScoreById(id);
         const data = {
             dummy: resp.dummy == undefined ? null : resp.dummy,
-            rps: resp.rps,
+            rps: resp.rps == undefined ? null : resp.rps,
+            simon: resp.simon == undefined ? null : resp.simon
         };
         console.log(data);
         return data;
@@ -19,6 +20,7 @@ const scoreSlice = createSlice({
     initialState: {
         dummy: null,
         rps: null,
+        simon: null
     },
     reducers: {},
     extraReducers: (builder) => {
