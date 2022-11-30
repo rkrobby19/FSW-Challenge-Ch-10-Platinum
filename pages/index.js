@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { validateUser } from "../util/validateUser";
 import { useEffect } from "react";
 import { retrieveUserById } from "../redux/reducer/user";
-import { retrieveScoreById } from "../redux/reducer/score";
+import { retrieveScoreById } from "../redux/reducer/scores";
 
 export default function Home() {
     const dispatch = useDispatch();

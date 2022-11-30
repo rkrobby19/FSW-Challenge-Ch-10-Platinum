@@ -12,7 +12,7 @@ import { updateUserById, uploadProfileImage } from "../utils/user";
 import { validateUser } from "../util/validateUser";
 import { retrieveUserById } from "../redux/reducer/user";
 import { getScoreById } from "../utils/game";
-import { retrieveScoreById } from "../redux/reducer/score";
+import { retrieveScoreById } from "../redux/reducer/scores";
 
 const Profile = () => {
     const router = useRouter();

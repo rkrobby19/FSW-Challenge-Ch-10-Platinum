@@ -11,7 +11,8 @@ const ScoreTable = (props) => {
     const handleSave = () => {
         const data = {
             dummy: scoreData.dummy + props.score,
-            rps: scoreData.rps
+            rps: scoreData.rps,
+            simon: scoreData.simon
         }
         console.log(scoreData.dummy)
         insertUserScore(props.userId, data)

@@ -29,11 +29,11 @@ const DummyGame = () => {
         if(data.status == "INVALID"){
             router.push("/")
         }
-        if( scoreData.dummy == null){
-            console.log("tes")
-            dispatch(retrieveScoreById(data.uid))
-        }
     },[])
+
+    useEffect(() => {
+        dispatch(retrieveScoreById(user.uid))
+    },[score])
 
     return(
         <div>

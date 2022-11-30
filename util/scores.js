@@ -7,8 +7,8 @@ import { useSelector } from "react-redux"
 // })
 
 export const insertUserScore = async (id, score) => {
-    await set(ref(databaseFirebase, `score/${id}`), { dummy: score.dummy, rps: score.rps })
-    console.log(set)
+    await set(ref(databaseFirebase, `score/${id}`), { dummy: score.dummy, rps: score.rps, simon: score.simon })
+
 }
 
 export const getScoreById = (id) => {
