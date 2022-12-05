@@ -112,7 +112,14 @@
   transform: scale(1) translateY(-30%);
 }
 
-
+.name {
+  font-size: 30px;
+  color: #8d0ea1;
+  background-image: -webkit-linear-gradient(45deg, #8d0ea1 10%, #123854 82%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
   
 
 
